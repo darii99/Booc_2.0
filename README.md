@@ -6,10 +6,8 @@ Group 3 - List of members
 ---------
 Github handle - Firstname Lastname
 
-* Sneakycloud - Eddie Olofsgård
+* darii99 - Darina Larsen
 * sodqv - Sara Odqvist
-* ebbabrage - Ebba Brage
-* sandzan - Sandra Carlsson
 
 
 
