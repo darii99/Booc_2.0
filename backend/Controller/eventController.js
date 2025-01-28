@@ -1,5 +1,6 @@
 
 const eventModel = require('../model/eventModel');
+const { logInfo, logError } = require('../services/logger.js');
 const {createEvent:createEventModel,
         deleteEventModel,
         checkIfCreator} = eventModel;

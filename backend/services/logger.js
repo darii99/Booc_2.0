@@ -1,17 +1,24 @@
-const axios = require('axios');
+//const axios = require('axios');
+const Log = require('./Model/schemas/logSchema.js');
 
-async function logEvent(logLevel, message, metadata = {}) {
-  await axios.post('http://logging-service/api/logs', {     //välj en logging service
-    serviceName: 'AuthService',
-    logLevel,
-    message,
-    metadata,
-    timestamp: new Date()
-  });
+async function logEvent(serviceName, logLevel, message, metadata = {}) {
+    try {
+        const logEntry = new Log({
+            serviceName,
+            message,
+            metadata,
+            timestamp: new Date(),
+        });
+
+        await logEntry.save();
+        console.log( `[${logLevel}] ${message}`);
+    } catch (err) {
+        console.error('Failed to log event: ', err.message);
+    }
 }
 
 module.exports = {
-  logInfo: (message, metadata) => logEvent('INFO', message, metadata),
-  logError: (message, metadata) => logEvent('ERROR', message, metadata)
+  logInfo: (serviceName, message, metadata) => logEvent(serviceName, 'INFO', message, metadata),
+  logError: (serviceName, message, metadata) => logEvent(serviceName, 'ERROR', message, metadata)
 };
 
