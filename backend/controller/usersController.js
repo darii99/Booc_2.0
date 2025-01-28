@@ -1,25 +1,31 @@
 const usersModel = require('../model/usersModel.js');
-
+const { logInfo, logError } = require('../services/logger.js');
 
 //
 //Get user info
 async function getCurrentUser(req, res){
     try{
         //Test if user exists
-        if(!req.session.user){return res.status(401).send({msg:"Cannot find session"})}
+        if(!req.session.user){
+            logger.logInfo('Session not found', { userId: null });
+            return res.status(401).send({msg:"Cannot find session"});
+        }
 
         //Updates user session before returning it
         const databaseUser = await usersModel.getUserWithUsername(req.session.user.username, req.session.user.identifier);
         req.session.user = {id:req.session.id, ...databaseUser, password:req.session.user.password, socket:req.session.socket};
-
+        
         //Returns user session
         if(!req.session.user){
             return res.status(401).send({msg:"Not authenticated"})
         }
+
+        logger.logInfo('User session retrieved successfully', { userId: req.session.user.id });
         return res.status(200).send(req.session.user);
     }
     catch(err){
         console.log(err);
+        logger.logError('Failed to retrieve current user session', { error: err.message });
         return res.status(500).send({msg:"Failed to get current user"});
     }
     
@@ -28,16 +34,21 @@ async function getCurrentUser(req, res){
 //Create user
 async function createUser(req, res){
     const {body: {email, username, password}} = req;
+
     const result = await usersModel.createUser(email, username, password);
+
     if(result === "All identifiers used"){
+        logger.logError('Failed to create user: All identifiers used', { username });
         return res.status(500).send({msg:"All identifiers used for this username"});
     }
     //console.log(result);
     if(typeof result !== "undefined"){
         req.session.user = {id:req.session.id, ...result, password:password, socket:req.session.socket};
+        logger.logInfo('User created successfully', { userId: req.session.user.id });
         return res.status(200).send({msg:"Created user"});
     }
     else{
+        logger.logError('Failed to create user', { username });
         return res.status(500).send({msg:"Failed to create user"});
     }
 }
