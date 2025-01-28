@@ -3,11 +3,11 @@ const { Schema } = mongoose;
 
 
 const logSchema = new Schema({
-    timestamp: {type: Date},
     serviceName: {type: String},
-    //logLevel: {type: String},
     message: {type: String},
-   // metadata: Object
+    // metadata: Object,
+    //logLevel: {type: String},
+    timestamp: {type: Date},
 
 },
 {
