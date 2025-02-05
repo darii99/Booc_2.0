@@ -13,12 +13,11 @@ const formatHTTPLoggerResponse = (
             baseUrl: req.baseUrl,
             url: req.url,
 
-            method: req.method,
+            method: req.method,     //GET, POST, PUT, DELETE
             body: req.body,
             params: req?.params,
             query: req?.query,
 
-            //clientIp: req.headers['x-forwarded-for'] ?? req?.socket.remoteAddress,
         },
 
         response: {
