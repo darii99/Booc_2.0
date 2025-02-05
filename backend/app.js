@@ -13,6 +13,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require("./routes/api");
 
+
+const responseHandler = require('./services/responseHandler');
+
+
 var app = express();
 //Creates socket connection server
 const http = require('http');
@@ -122,6 +126,7 @@ app.use((req, res, next) => {
 //   next();
 // })
 
+app.use(responseHandler);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api", apiRouter);
