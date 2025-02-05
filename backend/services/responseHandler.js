@@ -1,5 +1,5 @@
 const wLogger = require("./logger");
-const formatHTTPLoggerResponse = require("./httpReqResFormatter");
+const formatHTTPLoggerResponse = require("./formatHTTPReqRes");
 
 
 const responseHandler = (req, res, next) => {
