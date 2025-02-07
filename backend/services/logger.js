@@ -7,7 +7,7 @@ const timestampFormat = 'MMM-DD-YYYY HH:mm:ss';
 
 
 //format for the log entries
-const logFormat = printf(({ level, message, timestamp, ...data }) => {
+const logFormat = printf(({ level, message, timestamp, format: timestampFormat , ...data }) => {
     const response = { level, message, data };
     return JSON.stringify(response);
 });
@@ -15,7 +15,7 @@ const logFormat = printf(({ level, message, timestamp, ...data }) => {
 
 const wLogger = winston.createLogger({
     format: combine(
-        timestamp({ format: timestampFormat }), 
+        //timestamp({ format: timestampFormat }), 
         json(),
         logFormat
     ),
