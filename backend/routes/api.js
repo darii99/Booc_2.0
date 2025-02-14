@@ -4,7 +4,7 @@ const {getCurrentUser,
     createUser, 
     deleteUser, 
     changePassword,
-    changeStartPage} = require('../controller/usersController');
+    changeStartPage} = require('.././Microservices/Users/usersController');
 const {getGroup,
     getAllGroups,
     createGroup,

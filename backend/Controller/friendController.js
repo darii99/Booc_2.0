@@ -1,7 +1,7 @@
 const { sendToSocket, getSocket } = require("../model/io_socket");
 const { //getCurrentUser:getCurrentUserModel,
         addFriend:addFriendModel,
-        deleteFriend:deleteFriendModel } = require("../model/usersModel");
+        deleteFriend:deleteFriendModel } = require("../Microservices/Users/usersModel");
 
 
 /* 

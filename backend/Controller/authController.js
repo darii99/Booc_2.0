@@ -1,4 +1,4 @@
-const usersModel = require('../model/usersModel.js');
+const usersModel = require('../Microservices/Users/usersModel');
 
 //Checks if the given credentials are a valid login.
 async function authenicate(req, res){

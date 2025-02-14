@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const events = require("./schemas/eventSchema");
-const users = require("./schemas/userSchema");
+const users = require("../Microservices/Users/userSchema");
 const {startmongoose} = require('./mongodbStarter');
 
 

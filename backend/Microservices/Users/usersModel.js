@@ -1,6 +1,8 @@
-const {startmongoose} = require('./mongodbStarter.js');
-const users = require("./schemas/userSchema.js");
+const {startmongoose} = require('../../Model/mongodbStarter.js');
+const users = require("./userSchema.js");
 const argon2 = require('argon2');
+
+
 
 //
 async function getUserWithUsername(username, identifier){
@@ -14,7 +16,6 @@ async function getUserWithUsername(username, identifier){
 
     if(user === null){return null;}
     const objUser = user.toObject();
-    //console.log( objUser);
 
     if(typeof objUser === "undefined"){
         return null;
@@ -22,7 +23,6 @@ async function getUserWithUsername(username, identifier){
     
     return objUser;
 }
-
 
 
 
@@ -35,20 +35,13 @@ async function getUser(email, password){
     });
     if(user === null){return null;}
     const objUser = user.toObject();
-    //console.log( objUser);
+
 
     if(typeof objUser === "undefined"){
         return null;
     }
     
-    /*
-    console.log("2");
-    console.log(objUser.password);
-    console.log(password);
-    */
-
     if(await argon2.verify(objUser.password, password)){
-        //console.log("Yay")
         return objUser;
     }
     else{
