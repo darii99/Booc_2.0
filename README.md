@@ -46,6 +46,14 @@ SESSION_SECRET = place your session secret here
     - The connection string also decides which database in the cluster is used to so set it to an appropriate name. (This is the /Booc? part of the connection string where booc is the database name).  
 
 6. For debugging run ```SET DEBUG=backend:* & npm start``` in the cmd (this has a problem with doing it in vscode) or if you are running it for production ```npm start```.
+   
+
+Starting gateway
+---------
+1. Clone repository
+2. Open "backend" in cmd
+4. Run ```node gateway.js```
+
 
 Starting microservices
 ---------
