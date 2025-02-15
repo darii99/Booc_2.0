@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const router = require("./userRoutes");
 const PORT = 3200;
 
+require('dotenv').config({path: require('find-config')('.env')});
+
+app.use(cors()); // for requests from the gateway
 app.use(express.json());
-require('dotenv').config({path: require('find-config')('.env')})
+
 
 
 app.use("/user", router);
