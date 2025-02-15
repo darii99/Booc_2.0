@@ -1,4 +1,4 @@
-const { sendToSocket, getSocket } = require("../model/io_socket");
+
 const { //getCurrentUser:getCurrentUserModel,
         addFriend:addFriendModel,
         deleteFriend:deleteFriendModel } = require("../Microservices/Users/usersModel");
@@ -24,10 +24,6 @@ async function addFriend(req, res)
     const { friendsUsername, friendIdentifier } = req.body;      // the username and identifier inputted by the user
     const currentUser = req.session.user;                        // retrieve the currently logged in user
 
-    //console.log('Request body:', req.body);                     //logs what data is sent
-    //console.log('Currently logged in user:', currentUser);      //logs the current user
-
-
     try {
         //pass the data to the addFriend() function in usersModel
         const result = await addFriendModel(currentUser, friendsUsername, friendIdentifier);    
@@ -47,9 +43,7 @@ async function addFriend(req, res)
             return res.status(500).send({ msg: "Failed to add friend" });
         }
 
-        //const emitted_obj = {Type:"Add friend", Cause:`${currentUser.username}#${currentUser.identifier}`,}
-        //await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-        sendToSocket(null, null, req) //-------------------------------------------------------------------------------------------------------Delete this when sendToSocket works
+    
         return res.status(200).send({ msg: "Added friend" });
     }
     catch (error) {
@@ -70,8 +64,6 @@ async function deleteFriend(req, res)
         const result = await deleteFriendModel(currentUserID, friendsUsername, friendIdentifier);
         
         if (result === "Deleted") {
-            const emitted_obj = {Type:"Delete friend", Cause:`${currentUser.username}#${currentUser.identifier}`,}
-            await sendToSocket((await getSocket(friendsUsername, friendIdentifier)), emitted_obj, req);
             return res.status(200).send({ msg: "Friend successfully deleted" });
             
         }

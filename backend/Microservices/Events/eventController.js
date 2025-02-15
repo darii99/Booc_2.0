@@ -10,7 +10,7 @@ const {createEvent:createEventModel,
 function inviteToObject(array){
     return {username:array[0], identifier:array[1]};
 }
-const { sendToSocket, getSocket } = require('../../Model/io_socket.js');
+//const { sendToSocket, getSocket } = require('../../Model/io_socket.js');
 
 
 
@@ -27,10 +27,11 @@ async function createEvent(req, res){
     if (result)
     {
         //Send notification to all group members
+        /** 
         for(const {username, identifier} of invitePeople){
             const emitted_obj = {Type:"Create group", Cause:`${req.session.user.username}#${req.session.user.identifier}`,}
-            await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-        }
+            //await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
+        }*/
         return res.status(201).send({result});                          // 201 Created
     }
     else
@@ -89,7 +90,7 @@ async function getEvents(req, res){
         var uId = req.session.user.identifier;
 
         var result = await eventModel.getEvents(uName, uId);
-        //console.log(`I controller så ser result ut såhär`, result);
+        
         if (result === null) {
             console.log("Failed to get events");
             return res.status(500).send({msg:"Failed to get events"});

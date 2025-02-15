@@ -1,4 +1,6 @@
 var express = require('express');
+var router = express.Router();
+
 const {authenicate, authStatus, removeAuth} = require("../controller/authController");
 const {getCurrentUser,
     createUser, 
@@ -13,7 +15,8 @@ const {getGroup,
     leaveGroup} = require("../controller/groupController");
 const {addFriend, deleteFriend} = require('../controller/friendController');
 const { createEvent, deleteEvent, getEvents } = require('../Microservices/Events/eventController');
-var router = express.Router();
+
+
 
 //Authorization
 router.post("/auth", authenicate);

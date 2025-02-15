@@ -24,6 +24,8 @@ async function authenicate(req, res){
     }
 }
 
+
+
 //Check if user is logged in
 async function authStatus(req, res){
     //const {body: {email, password}} = req;
@@ -53,8 +55,11 @@ async function removeAuth(req, res) {
     
 }
 
+
+
 module.exports = {
     authenicate,
     authStatus,
     removeAuth,
 }
+

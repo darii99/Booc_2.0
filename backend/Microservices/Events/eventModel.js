@@ -62,14 +62,6 @@ async function checkIfCreator(_id, username, identifier)
         console.log(`Event with id ${_id} not found`);
         return null;
     }
-
-    /* 
-    const event = await events.findOne({
-        _id,
-        createdBy: user
-    });
-    */
-
     console.log("Event found:", event);
 
 
@@ -121,12 +113,6 @@ async function getEvents(username, identifier){
             ]
         })
         .sort({ date: 1 });
-        
-        // if (event.length > 0) {
-        //     console.log(`Hittade ${event.length} event(s) skapat av ${user.username}`);
-        // } else {
-        //     console.log(`Inga events under ${user.username}`);
-        // }
 
         if (!Array.isArray(event) || !event.length) {
             console.log("No events returned, returning null");
