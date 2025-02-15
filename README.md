@@ -1,7 +1,8 @@
 # Booc
+In this fork we will migrate Booc to the cloud!  
+
 Booc is an event scheduling app. 
 By adding friends and joining groups you can invite others to your events. Keep track of everything on your personal page.
-The purpose of this fork is to migrate Booc to the cloud.
 
 
 Group 3 - List of members
