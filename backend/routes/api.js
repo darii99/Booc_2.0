@@ -12,7 +12,7 @@ const {getGroup,
     createGroup,
     updateGroup,
     deleteGroup,
-    leaveGroup} = require("../controller/groupController");
+    leaveGroup} = require(".././Microservices/Groups/groupController");
 const {addFriend, deleteFriend} = require('../controller/friendController');
 const { createEvent, deleteEvent, getEvents } = require('../Microservices/Events/eventController');
 
