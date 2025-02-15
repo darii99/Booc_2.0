@@ -10,8 +10,6 @@ const {getGroup,
     leaveGroup} = require("./groupController");
 
 
-//Authorization
-router.get("/auth", userAuth);
 
 //Group
 router.get("/group", getGroup);
@@ -22,6 +20,10 @@ router.delete("/group", deleteGroup);
 //Groups
 router.get("/groups", getAllGroups);
 router.delete("/groups", leaveGroup);
+
+//User
+router.get("/auth", userAuth);
+
 
 
 module.exports = router;

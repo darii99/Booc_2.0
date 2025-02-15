@@ -1,4 +1,5 @@
 var express = require('express');
+var router = express.Router();
 
 const {getCurrentUser,
     createUser, 
@@ -7,20 +8,15 @@ const {getCurrentUser,
     changeStartPage,
     userAuth} = require('./usersController');
 
-var router = express.Router();
-
-
-//Password
-router.put("/password", changePassword);
-
-//Authorization
-router.get("/auth", userAuth);
 
 //Users
 router.get("/users", getCurrentUser);
 router.post("/users", createUser);
 router.put("/users", changeStartPage);
 router.delete("/users", deleteUser);
+router.put("/password", changePassword);
+router.get("/auth", userAuth);
+
 
 
 module.exports = router;
