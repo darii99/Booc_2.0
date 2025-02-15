@@ -1,4 +1,4 @@
-const usersModel = require('../model/usersModel.js');
+const usersModel = require('../Microservices/Users/usersModel');
 
 //Checks if the given credentials are a valid login.
 async function authenicate(req, res){
@@ -23,6 +23,8 @@ async function authenicate(req, res){
         return res.status(200).send({msg: "Valid crendentials", startingPage:startingPage});
     }
 }
+
+
 
 //Check if user is logged in
 async function authStatus(req, res){
@@ -53,8 +55,11 @@ async function removeAuth(req, res) {
     
 }
 
+
+
 module.exports = {
     authenicate,
     authStatus,
     removeAuth,
 }
+

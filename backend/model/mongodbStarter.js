@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const {mongoose} = require("mongoose")
+const {mongoose} = require("mongoose");
 const dotenv = require("dotenv");
 
 function startMongodb(){

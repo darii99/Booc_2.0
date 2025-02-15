@@ -4,10 +4,11 @@ const {getGroup:getGroupModel,
     updateGroup:updateGroupModel,
     deleteGroup:deleteGroupModel,
     leaveGroup:leaveGroupModel,
-    checkIfOwner} =  require("../model/groupModel");
-const { sendToSocket, getSocket } = require("../model/io_socket");
+    checkIfOwner} =  require("../Groups/groupModel");
 
 
+
+    
 function inviteToObject(array){
     return {username:array[0], identifier:array[1]};
 }
@@ -24,6 +25,8 @@ async function getGroup(req, res){
     return res.status(200).send({msg:"Got group", group:result});
 }
 
+
+
 //Get all groups a person is in
 async function getAllGroups(req, res){
     try{
@@ -37,6 +40,8 @@ async function getAllGroups(req, res){
         return res.status(500).send({msg:"Failed to get groups"});
     }
 }
+
+
 
 //Create group
 async function createGroup(req, res){
@@ -52,14 +57,6 @@ async function createGroup(req, res){
         if(result === null){
             return res.status(500).send({msg:"Failed to create group"});
         }
-
-        //Send notification to all group members
-        for(const {username, identifier} of members){
-            const emitted_obj = {Type:"Create group", Cause:`${owner.username}#${owner.identifier}`,}
-            await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-        }
-        
-
         return res.status(200).send({msg:"Created group"});
     }
     catch{
@@ -98,18 +95,6 @@ async function updateGroup(req, res){
                 return res.status(500).send({msg:"Failed to update group"});
             }
 
-            //Send notification to all group members
-            for(const {username, identifier} of [...result.members, members]){
-                const emitted_obj = {Type:"Update group", Cause:`${req.session.user.username}#${req.session.user.identifier}`,}
-                await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-            }
-
-            //Send notification to new owner
-            for(const {username, identifier} of [...result.owners, {username:req.session.user.username, identifier:req.session.user.identifier}]){
-                const emitted_obj = {Type:"Update group", Cause:`${req.session.user.username}#${req.session.user.identifier}`,}
-                await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-            }
-
             return res.status(200).send({msg:"Updated group"});
         }
         catch(err){
@@ -121,9 +106,9 @@ async function updateGroup(req, res){
         console.log(err);
         return res.status(500).send({msg:"Failed to update group"});
     }
-    
-    
 }
+
+
 
 //Delete group
 async function deleteGroup(req, res){
@@ -149,15 +134,10 @@ async function deleteGroup(req, res){
         return res.status(500).send({msg:"Failed to delete group"});
     }
 
-    //Send notification to all group members
-    //for(const {username, identifier} of members){
-    //    const emitted_obj = {Type:"Delete group", Cause:`${req.session.user.username}#${req.session.user.identifier}`,}
-    //    await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-    //}
-    sendToSocket(null, null, req) //-------------------------------------------------------------------------------------------------------Delete this when sendToSocket works
-
     return res.status(200).send({msg:"Deleted group"});
 }
+
+
 
 //Takes groupname and if the user is in it then leave
 async function leaveGroup(req, res) {
@@ -174,23 +154,9 @@ async function leaveGroup(req, res) {
         if(!(groupState?.username) || !(groupState?.identifier)){
             var result = await deleteGroupModel(groupName);
             if(result === null){
-                sendToSocket(null, null, req) //-------------------------------------------------------------------------------------------------------Delete this when sendToSocket works
                 return res.status(200).send({msg:"Left group"});
             }
         }
-        
-        sendToSocket(null, null, req) //-------------------------------------------------------------------------------------------------------Delete this when sendToSocket works
-
-        /*
-        var members = getGroup(groupName).members;
-
-        //Send notification to all group members
-        for(const {username, identifier} of members){
-            const emitted_obj = {Type:"Left group", Cause:`${req.session.user.username}#${ req.session.user.identifier}`,}
-            await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-        }
-            */
-        
         return res.status(200).send({msg:"Left group"});
     }
     catch(err){

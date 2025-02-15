@@ -1,6 +1,6 @@
 
-const eventModel = require('../model/eventModel');
-const { logInfo, logError } = require('../services/logger.js');
+const eventModel = require('./eventModel.js');
+const { logInfo, logError } = require('../../services/logger.js');
 const {createEvent:createEventModel,
         deleteEventModel,
         checkIfCreator} = eventModel;
@@ -10,7 +10,10 @@ const {createEvent:createEventModel,
 function inviteToObject(array){
     return {username:array[0], identifier:array[1]};
 }
-const { sendToSocket, getSocket } = require("../model/io_socket");
+//const { sendToSocket, getSocket } = require('../../Model/io_socket.js');
+
+
+
 
 //create event
 async function createEvent(req, res){
@@ -24,10 +27,11 @@ async function createEvent(req, res){
     if (result)
     {
         //Send notification to all group members
+        /** 
         for(const {username, identifier} of invitePeople){
             const emitted_obj = {Type:"Create group", Cause:`${req.session.user.username}#${req.session.user.identifier}`,}
-            await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
-        }
+            //await sendToSocket((await getSocket(username, identifier)), emitted_obj, req);
+        }*/
         return res.status(201).send({result});                          // 201 Created
     }
     else
@@ -86,7 +90,7 @@ async function getEvents(req, res){
         var uId = req.session.user.identifier;
 
         var result = await eventModel.getEvents(uName, uId);
-        //console.log(`I controller så ser result ut såhär`, result);
+        
         if (result === null) {
             console.log("Failed to get events");
             return res.status(500).send({msg:"Failed to get events"});

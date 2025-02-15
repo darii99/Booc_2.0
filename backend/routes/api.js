@@ -1,19 +1,22 @@
 var express = require('express');
+var router = express.Router();
+
 const {authenicate, authStatus, removeAuth} = require("../controller/authController");
 const {getCurrentUser,
     createUser, 
     deleteUser, 
     changePassword,
-    changeStartPage} = require('../controller/usersController');
+    changeStartPage} = require('.././Microservices/Users/usersController');
 const {getGroup,
     getAllGroups,
     createGroup,
     updateGroup,
     deleteGroup,
-    leaveGroup} = require("../controller/groupController");
+    leaveGroup} = require(".././Microservices/Groups/groupController");
 const {addFriend, deleteFriend} = require('../controller/friendController');
-const { createEvent, deleteEvent, getEvents } = require('../controller/eventController');
-var router = express.Router();
+const { createEvent, deleteEvent, getEvents } = require('../Microservices/Events/eventController');
+
+
 
 //Authorization
 router.post("/auth", authenicate);

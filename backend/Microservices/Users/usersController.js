@@ -1,7 +1,23 @@
-const usersModel = require('../model/usersModel.js');
-//const { logInfo, logError } = require('../services/logger.js');
+const usersModel = require('./usersModel.js');
 
-//
+
+//For user authentication
+async function userAuth(req, res) {
+    const {email, password} = req.query;
+
+    try {
+        //try to find a user with matching email and password in the database
+        const user = await usersModel.getUser(email, password);
+        return res.status(200).send({user: user});
+    }
+    catch(err) {
+        console.log("Authentication error:", err);
+        return res.status(500).send({ msg: "Failed to authenticate user" });
+    }
+}
+
+
+
 //Get user info
 async function getCurrentUser(req, res){
     try{
@@ -102,6 +118,7 @@ async function deleteUser(req, res) {
 
 
 module.exports = {
+    userAuth,
     getCurrentUser,    
     createUser,
     deleteUser,
@@ -112,30 +129,3 @@ module.exports = {
 
 
 
-
-
-
-
-
-//Get user info
-/*
-export function getUser(req, res){
-    if(!req.session.user){
-        return res.status(401).send({msg:"Not authenticated"})
-    }
-    //Extract parameters from req
-    const {body: {email, password}} = req;
-    //Search database and checks if the user exists
-    const user = getUserModel(email, password);
-    if(!user){
-        return res.status(403).send({msg:"Did not find user"});
-    }
-
-    //Copies object but removes password
-    const returnUser = {email:user.email, username:user.username, description:user.description, startingPage:user.startingPage}
-
-    return res.status(200).send(returnUser);
-}
-*/
-
-//Save info
