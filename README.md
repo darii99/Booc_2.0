@@ -54,8 +54,10 @@ Starting microservices
 4. Run ```node userService.js```
 
 
-Do the same for the other microservices. 
-Currently: "backend/Microservices/Events" ```node eventService.js```
+Do the same for the other microservices.    
+"backend/Microservices/Events" ```node eventService.js```  
+"backend/Microsevices/Groups" ```node groupService.js```  
+
 
 
 
