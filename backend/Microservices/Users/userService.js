@@ -7,7 +7,7 @@ app.use(express.json());
 require('dotenv').config({path: require('find-config')('.env')})
 
 
-app.use("/api", router);
+app.use("/user", router);
 
 
 app.listen(PORT, () => {
