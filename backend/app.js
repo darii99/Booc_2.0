@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require("./routes/api");
 
+const PORT = 6400;
 
 const responseHandler = require('./services/responseHandler');
 
@@ -106,26 +107,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-/*
-app.use((req, res, next) => {
-  console.log(req.session)
-  next();
-});
-*/
-
-//IO uses shared session
-// io.use(sharedsession(session, {
-//   autoSave: true,
-// }));
-
-
-
-// app.use(function(rec, res, next) {
-//   console.log(rec.session);
-//   next();
-// })
-
 app.use(responseHandler);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -148,7 +129,25 @@ app.use(function(err, req, res, next) {
 });
 
 
-server.listen(6400)
+
+/** 
+//runs the code only when app.js is the entry point
+if (require.main === module){
+  app.listen(PORT, () => {
+    console.log(`Backend is running on port ${PORT}`);
+  });
+}
+*/
+
+//server.listen(6400);
+
+server.listen(PORT, () => {
+  console.log(`Backend is running on port ${PORT}`);
+});
+
+
+
+
 module.exports = {app,io};
 
 
