@@ -35,7 +35,7 @@ Starting backend server
 ```
 DB_USERNAME = place username here  
 DB_PASSWORD = place password here  
-SESSION_SECRET= place your session secret here
+SESSION_SECRET = place your session secret here
 ```
 
 - If you want to connect to a database other than the one setup by us, then change the following in backend:  
