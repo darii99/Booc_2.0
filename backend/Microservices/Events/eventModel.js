@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const events = require("./schemas/eventSchema");
-const users = require("../Microservices/Users/userSchema");
-const {startmongoose} = require('./mongodbStarter');
+const events = require("./eventSchema");
+const users = require("../Users/userSchema");
+const {startmongoose} = require('../../Model/mongodbStarter');
 
 
 //create event

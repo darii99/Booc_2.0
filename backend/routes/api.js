@@ -12,7 +12,7 @@ const {getGroup,
     deleteGroup,
     leaveGroup} = require("../controller/groupController");
 const {addFriend, deleteFriend} = require('../controller/friendController');
-const { createEvent, deleteEvent, getEvents } = require('../controller/eventController');
+const { createEvent, deleteEvent, getEvents } = require('../Microservices/Events/eventController');
 var router = express.Router();
 
 //Authorization

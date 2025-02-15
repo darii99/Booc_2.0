@@ -1,6 +1,6 @@
 
-const eventModel = require('../model/eventModel');
-const { logInfo, logError } = require('../services/logger.js');
+const eventModel = require('./eventModel.js');
+const { logInfo, logError } = require('../../services/logger.js');
 const {createEvent:createEventModel,
         deleteEventModel,
         checkIfCreator} = eventModel;
@@ -10,7 +10,10 @@ const {createEvent:createEventModel,
 function inviteToObject(array){
     return {username:array[0], identifier:array[1]};
 }
-const { sendToSocket, getSocket } = require("../model/io_socket");
+const { sendToSocket, getSocket } = require('../../Model/io_socket.js');
+
+
+
 
 //create event
 async function createEvent(req, res){
