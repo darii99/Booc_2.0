@@ -34,9 +34,9 @@ Starting backend server
 4. Create a .env file (currently you need one .env in the backend directory, one in backend/Microservices/Events and one in backend/Microservices/Groups).
 5. Enter your username and password for the mongodb connection string in the .env file. The format should be:
 ```
-DB_USERNAME = place username here  
-DB_PASSWORD = place password here  
-SESSION_SECRET = place your session secret here
+DB_USERNAME=[place username here]  
+DB_PASSWORD=[place password here] 
+SESSION_SECRET=[place your session secret here]
 ```
 
 - If you want to connect to a database other than the one setup by us, then change the following in backend:  
