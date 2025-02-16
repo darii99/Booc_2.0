@@ -31,7 +31,7 @@ Starting backend server
 1. Clone repository
 2. Go into "backend" folder.
 3. Open cmd in current directory and enter ```npm ci``` (this requires node.js).
-4. Create a .env file (currently you need one .env in the backend directory and one .env in /backend/Microservices/Events).
+4. Create a .env file (currently you need one .env in the backend directory, one in backend/Microservices/Events and one in backend/Microservices/Groups).
 5. Enter your username and password for the mongodb connection string in the .env file. The format should be:
 ```
 DB_USERNAME = place username here  
