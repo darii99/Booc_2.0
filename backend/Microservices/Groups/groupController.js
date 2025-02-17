@@ -4,7 +4,7 @@ const {getGroup:getGroupModel,
     updateGroup:updateGroupModel,
     deleteGroup:deleteGroupModel,
     leaveGroup:leaveGroupModel,
-    checkIfOwner} =  require("../Groups/groupModel");
+    checkIfOwner} =  require("./groupModel");
 
 
 
