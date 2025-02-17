@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {userAuth} = require('../Users/usersController');
+//const {userAuth} = require('../Users/usersController');
 const {getGroup,
     getAllGroups,
     createGroup,
@@ -22,7 +22,7 @@ router.get("/groups", getAllGroups);
 router.delete("/groups", leaveGroup);
 
 //User
-router.get("/auth", userAuth);
+//router.get("/auth", userAuth);
 
 
 

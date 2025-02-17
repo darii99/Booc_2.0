@@ -9,11 +9,11 @@ COPY package*.json ./
 # install dependencies
 RUN npm ci --omit=dev
 
-COPY /Microservices/Users/ ./
+COPY /Microservices/Groups/ ./
 
 # port the service runs on
-EXPOSE 3200
+EXPOSE 3600
 
 # command to start the service
-CMD ["node", "userService.js"]
+CMD ["node", "groupService.js"]
 
