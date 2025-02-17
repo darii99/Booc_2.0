@@ -71,9 +71,21 @@ Starting microservices using Docker
 ---------
 1. Install [Docker](https://www.docker.com) on your computer 
 2. Open Booc_2.0/backend in cmd
-3. Build the Docker Image ```docker build -t user_service:latest -f Microservices/Users/Dockerfile . --no-cache```
-4. Run the Docker Container ```docker run -d -p 3200:3200 --name user_service user_service:latest```
-5. Check that the container is running ```docker ps```
+
+### User Microservice
+1. Build the Docker Image ```docker build -t user_service:latest -f Microservices/Users/Dockerfile . --no-cache```
+2. Run the Docker Container ```docker run -d -p 3200:3200 --name user_service user_service:latest```
+3. Check that the container is running ```docker ps```
+
+### Event Microservice
+1. Build the Docker Image ```docker build -t event_service:latest -f Microservices/Events/Dockerfile . --no-cache```
+2. Run the Docker Container ```docker run -d -p 3400:3400 --name event_service event_service:latest```
+3. Check that the container is running ```docker ps```
+
+### Group Microservice
+1. Build the Docker Image ```docker build -t group_service:latest -f Microservices/Groups/Dockerfile . --no-cache```
+2. Run the Docker Container ```docker run -d -p 3600:3600 --name group_service group_service:latest```
+3. Check that the container is running ```docker ps```
 
 
 List of Features
