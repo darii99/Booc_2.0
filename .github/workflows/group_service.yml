@@ -55,7 +55,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-         docker build -t group_service:latest -f Microservices/Groups/Dockerfile .
+         docker build -t group_service:latest -f backend/Microservices/Groups/Dockerfile backend --no-cache
 
       - name: Run Docker Container Locally
         run: |
