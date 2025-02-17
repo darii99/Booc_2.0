@@ -1,4 +1,4 @@
-const {startmongoose} = require('../../Model/mongodbStarter.js');
+const {startmongoose} = require('./mongodbStarter.js');
 const users = require("./userSchema.js");
 const argon2 = require('argon2');
 
