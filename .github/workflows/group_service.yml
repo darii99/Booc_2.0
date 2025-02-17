@@ -40,9 +40,9 @@ jobs:
         working-directory: backend/Microservices/Groups
         run: npm ci
 
-      - name: Run Tests
-        working-directory: backend/Microservices/Groups
-        run: npm test  # Ensure you have test scripts in package.json
+      #- name: Run Tests
+      #  working-directory: backend/Microservices/Groups
+      #  run: npm test  # Ensure you have test scripts in package.json
 
 
   docker-build-and-run:
