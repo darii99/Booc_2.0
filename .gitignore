@@ -33,6 +33,17 @@ compiled/
 node_modules/
 
 
+# terraform
+terraform/.terraform/
+terraform/terraform.tfstate/
+terraform/terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+
+
 # dependencies
 /node_modules
 /.pnp
