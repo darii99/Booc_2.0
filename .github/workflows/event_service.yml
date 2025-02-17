@@ -55,10 +55,10 @@ jobs:
 
       - name: Build Docker Image
         run: |
-         docker build -t event_service:latest --file backend/Microservices/Events/Dockerfile .
+         docker build -t event_service:latest -f Microservices/Events/Dockerfile .
 
       - name: Run Docker Container Locally
         run: |
-          docker run -d -p 3200:3200 --name event_service event_service:latest
+          docker run -d -p 3400:3400 --name event_service event_service:latest
 
           

@@ -55,7 +55,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-         docker build -t user_service:latest --file backend/Microservices/Users/Dockerfile .
+         docker build -t user_service:latest -f Microservices/Users/Dockerfile .
 
       - name: Run Docker Container Locally
         run: |
