@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: group-microservice-deployment
+  labels:
+    app: group-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: group-microservice
+  template:
+    metadata:
+      labels:
+        app: group-microservice
+    spec:
+      containers:
+      - name: group-microservice
+        image: $CONTAINER_REGISTRY_LOGIN_SERVER/group-microservice:$VERSION
+        env:
+        - name: PORT
+          value: "3600"
+        - name: DB_USERNAME
+          value: $DB_USERNAME
+        - name: DB_PASSWORD
+          value: $DB_PASSWORD
+        - name: SESSION_SECRET
+          value: $SESSION_SECRET
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: group-microservice
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3600
+      targetPort: 3600
+  selector:
+    app: group-microservice
+
