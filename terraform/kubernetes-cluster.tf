@@ -20,10 +20,10 @@ identity {
 }
 
 
-/*
+
 resource "azurerm_kubernetes_cluster_acr" "main" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.main.id
   acr_name              = azurerm_container_registry.main.name
 }
-*/
+
 

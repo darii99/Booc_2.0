@@ -24,6 +24,9 @@ jobs:
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+        CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+        CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+        CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
 
     steps:
       - name: Checkout Code
@@ -40,9 +43,6 @@ jobs:
         working-directory: backend/Microservices/Users
         run: npm ci
 
-      #- name: Run Tests
-      #  working-directory: backend/Microservices/Users
-      #  run: npm test  # Ensure you have test scripts in package.json
 
 
   docker-build-and-run:
@@ -53,30 +53,26 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+
       - name: Build Docker Image
+        run: docker build -t $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION -f backend/Microservices/Users/Dockerfile backend --no-cache
+      
+      - name: Push Docker Image to Azure Container Registry
+        working-directory: 'backend/Microservices/Users'
         run: |
-         docker build -t user_service:latest -f backend/Microservices/Users/Dockerfile backend --no-cache
+          echo $CONTAINER_REGISTRY_PASSWORD | docker login $CONTAINER_REGISTRY_LOGIN_SERVER -u $CONTAINER_REGISTRY_USERNAME --password-stdin
+          docker push $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION
 
-      - name: Run Docker Container Locally
-        run: |
-          docker run -d -p 3200:3200 --name user_service user_service:latest
-  
 
- # deploy:
-#    needs: docker-build-and-run
-#    runs-on: ubuntu-latest
-#
- #   steps:
-  #    - name: SSH into Server and Deploy
-   #     uses: appleboy/ssh-action@v0.1.10
-    #    with:
-     #     host: ${{ secrets.SERVER_HOST }}          # Server IP Address
-      #    username: ${{ secrets.SERVER_USER }}      # Server SSH username
-       #   password: ${{ secrets.SERVER_PASSWORD }}  # Server SSH password (or SSH key)
-        #  script: |
-         #   docker pull sodqv/user_service:latest
-          #  docker stop user_service || true
-           # docker rm user_service || true
-            #docker run -d -p 3200:3200 --name user_service sodqv/user_service:latest
+
+      #- name: Build Docker Image
+      #  run: |
+      #   docker build -t user_service:latest -f backend/Microservices/Users/Dockerfile backend --no-cache
+
+      #- name: Run Docker Container Locally
+      #  run: |
+      #    docker run -d -p 3200:3200 --name user_service user_service:latest
+
+
 
 
