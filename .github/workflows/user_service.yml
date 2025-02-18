@@ -74,5 +74,17 @@ jobs:
       #    docker run -d -p 3200:3200 --name user_service user_service:latest
 
 
+      - name: Install Kubectl
+        uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+          kubectl-version: v1.32.0
 
+
+      - name: Deploy User Manifest to the AKS cluster (Azure Kubernetes Service)
+        run: | 
+          envsubst < Kubernetes_Manifests/userDeployment.yml > userDeployment.processed.yml
+          kubectl apply -f userDeployment.processed.yml
+
+    
 
