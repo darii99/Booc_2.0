@@ -88,6 +88,50 @@ Starting microservices using Docker
 3. Check that the container is running ```docker ps```
 
 
+Terraform Setup Guide
+----------
+1. ### Install Terraform
+    - Windows: <br>
+       - Download Terraform from the official site: https://developer.hashicorp.com/terraform/downloads <br>
+       - Add Terraform to your system's PATH: *Open "Environment Variables" > Edit "System Variables" > Add the Terraform folder to Path.* <br>
+       - Verify installation by writing ``` terraform -v ``` in the cmd.
+     
+    - Linux (Ubuntu/Debian): <br>
+        ```
+        sudo apt update && sudo apt install -y gnupg software-properties-common
+        wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+        sudo apt update && sudo apt install terraform -y
+        terraform -v
+        ```
+    - MacOS (Homebrew)
+        ```
+        brew tap hashicorp/tap
+        brew install hashicorp/tap/terraform
+        terraform -v
+        ```
+
+2. ### Initialize Terraform for this Project
+   - Authenticate with Azure (if using Azure Resources) in cmd: ``` az login ```
+   - Navigate to your Terraform Project Directory : ``` cd path/to/your/terraform/project ```
+   - Initialize Terraform in cmd: ``` terraform init ```
+   - Check Terraform configuration:  ``` terraform validate ```
+   - Apply Change to Deploy Resources: ``` terraform apply ``` and type "yes" when prompted to confirm.
+   - Do not forget to add sensitive files (such as terraform.tfstate) in .gitignore
+  
+3. ### Troubleshooting
+ - If Terraform fails due to an existing resource, you need to import it:
+    ```
+     terraform import <resource_type>.<resource_name> <resource_id>
+      ```
+   For example:
+   ```
+   terraform import azurerm_resource_group.main "/subscriptions/xxxx/resourceGroups/your-rg"
+   ```
+- Ensure that your backend block is properly defined in terraform.tf or main.tf
+- Reinitialize Terraform to download the necessary plugins: ``` terraform init -upgrade ```
+- If you want to remove all created resources, run: ``` terraform destroy ```
+
 List of Features
 ----------
 - user accounts
@@ -100,5 +144,5 @@ List of Features
 
 Main Entities
 ----------
-users, events, groups
+Users, Events, Groups
 
