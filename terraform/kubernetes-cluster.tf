@@ -1,3 +1,7 @@
+# creates an Azure Kubernetes Service (AKS) cluster, which will run our microservices.
+# Our docker containers will be deployed and managed here.
+
+
 resource "azurerm_kubernetes_cluster" "main" {
   name                = var.app_name
   location            = var.location
@@ -22,3 +26,4 @@ resource "azurerm_kubernetes_cluster_acr" "main" {
   acr_name              = azurerm_container_registry.main.name
 }
 */
+

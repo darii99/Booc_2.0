@@ -1,3 +1,5 @@
+# defines variables for our app configuration.
+
 variable "app_name" {
   default = "booc2"
 }

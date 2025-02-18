@@ -1,4 +1,5 @@
-# Creates a container registry in Azure (for Docker images)
+# Creates a container registry in Azure (to store Docker images)
+# it will hold the docker images that we build and push from the github actions pipeline.
 
 resource "azurerm_container_registry" "main" {
   name                = var.app_name

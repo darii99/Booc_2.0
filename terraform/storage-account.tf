@@ -1,4 +1,4 @@
-# Create a storage account in Azure
+# Creates a storage account in Azure (to store files like logs or app data)
 
 resource "azurerm_storage_account" "main" {
   name                     = var.app_name

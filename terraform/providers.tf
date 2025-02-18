@@ -1,3 +1,5 @@
+# defines the required Terraform provider (AzureRM) to interact with azure.
+
 terraform {
   required_providers {
     azurerm = {
