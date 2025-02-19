@@ -54,8 +54,8 @@ jobs:
         run: npm ci
 
 
-      - name: Set Environment Variables
-        run: echo "CONTAINER_REGISTRY_LOGIN_SERVER=${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}" >> $GITHUB_ENV
+      #- name: Set Environment Variables
+      #  run: echo "CONTAINER_REGISTRY_LOGIN_SERVER=${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}" >> $GITHUB_ENV
 
 
   docker-build-and-run:
@@ -74,8 +74,8 @@ jobs:
 
 
       - name: Build Docker Image
-        run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:${VERSION}" -f backend/Microservices/Users/Dockerfile backend
-
+        #run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:${VERSION}" -f backend/Microservices/Users/Dockerfile backend
+        run: docker build -t $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION --file ./Dockerfile .
       
       
       - name: Push Docker Image to Azure Container Registry
