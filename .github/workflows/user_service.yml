@@ -67,12 +67,7 @@ jobs:
 
 
       - name: Build Docker Image
-        #run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:${VERSION}" -f backend/Microservices/Users/Dockerfile backend
-        run: |
-          if [ -z "$CONTAINER_REGISTRY_LOGIN_SERVER" ]; then echo "Error: CONTAINER_REGISTRY_LOGIN_SERVER is empty"; exit 1; fi
-          if [ -z "$VERSION" ]; then echo "Error: VERSION is empty"; exit 1; fi
-          docker build -t "$CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION" \
-            -f backend/Microservices/Users/Dockerfile backend
+        run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:${VERSION}" -f backend/Microservices/Users/Dockerfile backend
 
       
       
