@@ -66,15 +66,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Debug Environment Variables
-        run: |
-          echo "CONTAINER_REGISTRY_LOGIN_SERVER is set to: '${CONTAINER_REGISTRY_LOGIN_SERVER}'"
-          echo "VERSION is set to: '${VERSION}'"
+
       
-
-
       - name: Build Docker Image
-        run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:${VERSION}" -f backend/Microservices/Users/Dockerfile backend
+        run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:latest" -f backend/Microservices/Users/Dockerfile backend
       
       
       
