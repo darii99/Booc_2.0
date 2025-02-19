@@ -19,15 +19,22 @@ jobs:
   user-microservice:
     runs-on: ubuntu-latest
 
+    defaults:
+      run: 
+        working-directory: 'backend/Microservices/Users'
+
+
     env:
         VERSION: ${{ github.sha }}
+        CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+        CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+        CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
         
-        CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
-        CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
-        CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
 
 
 
