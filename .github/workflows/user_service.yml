@@ -56,7 +56,7 @@ jobs:
 
       - name: Debug Environment Variables
         run: |
-          echo "CONTAINER_REGISTRY_LOGIN_SERVER: $CONTAINER_REGISTRY_LOGIN_SERVER"
+          echo "CONTAINER_REGISTRY_LOGIN_SERVER=${CONTAINER_REGISTRY_LOGIN_SERVER}"
       
 
 
