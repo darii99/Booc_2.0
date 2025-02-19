@@ -61,7 +61,8 @@ jobs:
 
 
       - name: Build Docker Image
-        run: docker build -t $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION -f backend/Microservices/Users/Dockerfile backend --no-cache
+        run: docker build -t "${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:${VERSION}" -f backend/Microservices/Users/Dockerfile backend
+      
       
       - name: Push Docker Image to Azure Container Registry
         working-directory: 'backend/Microservices/Users'
