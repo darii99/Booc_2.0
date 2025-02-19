@@ -54,6 +54,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Debug Environment Variables
+        run: |
+          echo "CONTAINER_REGISTRY_LOGIN_SERVER: $CONTAINER_REGISTRY_LOGIN_SERVER"
+      
+
 
       - name: Build Docker Image
         run: docker build -t $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION -f backend/Microservices/Users/Dockerfile backend --no-cache
