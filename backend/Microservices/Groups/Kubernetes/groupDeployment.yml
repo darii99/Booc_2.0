@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: group-microservice
+  namespace: default
+  labels:
+    app: group-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: group-microservice
+  template:
+    metadata:
+      labels:
+        app: group-microservice
+    spec:
+      containers:
+      - name: group-microservice
+        image: $CONTAINER_REGISTRY_LOGIN_SERVER/group-microservice:latest
+        env:
+        - name: PORT
+          value: "3600"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: group-microservice
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3600
+      targetPort: 3600
+  selector:
+    app: group-microservice
+

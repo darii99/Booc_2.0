@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-microservice
+  namespace: default
+  labels:
+    app: event-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-microservice
+  template:
+    metadata:
+      labels:
+        app: event-microservice
+    spec:
+      containers:
+      - name: event-microservice
+        image: $CONTAINER_REGISTRY_LOGIN_SERVER/event-microservice:latest
+        env:
+        - name: PORT
+          value: "3400"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-microservice
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3400
+      targetPort: 3400
+  selector:
+    app: event-microservice

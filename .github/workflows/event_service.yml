@@ -14,16 +14,26 @@ on:
   workflow_dispatch:
 
 
+env:
+    VERSION: ${{ github.sha }}
+    DB_USERNAME: ${{ secrets.DB_USERNAME }}
+    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+
+    CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+    CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+    CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+
 
 jobs:
   event-microservice:
     runs-on: ubuntu-latest
 
-    env:
-        VERSION: ${{ github.sha }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+    defaults:
+      run: 
+        working-directory: 'backend/Microservices/Events'
+
 
     steps:
       - name: Checkout Code
@@ -40,9 +50,6 @@ jobs:
         working-directory: backend/Microservices/Events
         run: npm ci
 
-      #- name: Run Tests
-      #  working-directory: backend/Microservices/Events
-      #  run: npm test  # Ensure you have test scripts in package.json
 
 
   docker-build-and-run:
@@ -54,12 +61,35 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker Image
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/event-microservice:latest -f backend/Microservices/Events/Dockerfile backend
+      
+      - name: Push Docker Image to Azure Container Registry
+        working-directory: 'backend/Microservices/Events'
         run: |
-         docker build -t event_service:latest -f backend/Microservices/Events/Dockerfile backend --no-cache
+          echo ${CONTAINER_REGISTRY_PASSWORD} | docker login ${CONTAINER_REGISTRY_LOGIN_SERVER} -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
+          docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/event-microservice:latest
 
 
-      - name: Run Docker Container Locally
-        run: |
-          docker run -d -p 3400:3400 --name event_service event_service:latest
+      #- name: Build Docker Image
+      #  run: |
+      #   docker build -t event_service:latest -f backend/Microservices/Events/Dockerfile backend --no-cache
 
+
+      #- name: Run Docker Container Locally
+      #  run: |
+      #    docker run -d -p 3400:3400 --name event_service event_service:latest
+
+
+      - name: Install Kubectl
+        uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+          kubectl-version: v1.32.0
+
+
+      - name: Deploy User Manifest to the AKS cluster (Azure Kubernetes Service)
+        run: | 
+          envsubst < backend/Microservices/Events/Kubernetes/eventDeployment.yml > eventDeployment.processed.yml
+          kubectl apply -f eventDeployment.processed.yml
+          
           

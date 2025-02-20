@@ -8,8 +8,10 @@ COPY package*.json ./
 
 # install dependencies
 RUN npm ci --omit=dev
+#RUN npm install
 
-COPY /Microservices/Users/ ./
+#COPY /Microservices/Users/ ./
+COPY . ./
 
 # port the service runs on
 EXPOSE 3200
