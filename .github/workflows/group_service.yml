@@ -15,19 +15,25 @@ on:
 
 
 
+env:
+    VERSION: ${{ github.sha }}
+    DB_USERNAME: ${{ secrets.DB_USERNAME }}
+    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+
+    CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+    CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+    CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+
+
 jobs:
   group-microservice:
     runs-on: ubuntu-latest
 
-    env:
-        VERSION: ${{ github.sha }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-
-        CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
-        CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
-        CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+    defaults:
+      run: 
+        working-directory: 'backend/Microservices/Groups'
 
 
     steps:
@@ -45,9 +51,6 @@ jobs:
         working-directory: backend/Microservices/Groups
         run: npm ci
 
-      #- name: Run Tests
-      #  working-directory: backend/Microservices/Groups
-      #  run: npm test  # Ensure you have test scripts in package.json
 
 
   docker-build-and-run:
@@ -58,14 +61,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+
+
       - name: Build Docker Image
-        run: docker build -t $CONTAINER_REGISTRY_LOGIN_SERVER/group-microservice:$VERSION -f backend/Microservices/Groups/Dockerfile backend --no-cache
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/group-microservice:latest -f backend/Microservices/Groups/Dockerfile backend
       
+
+
       - name: Push Docker Image to Azure Container Registry
         working-directory: 'backend/Microservices/Groups'
         run: |
           echo $CONTAINER_REGISTRY_PASSWORD | docker login $CONTAINER_REGISTRY_LOGIN_SERVER -u $CONTAINER_REGISTRY_USERNAME --password-stdin
-          docker push $CONTAINER_REGISTRY_LOGIN_SERVER/group-microservice:$VERSION
+          docker push $CONTAINER_REGISTRY_LOGIN_SERVER/group-microservice:latest
 
 
 
