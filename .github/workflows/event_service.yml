@@ -14,20 +14,25 @@ on:
   workflow_dispatch:
 
 
+env:
+    VERSION: ${{ github.sha }}
+    DB_USERNAME: ${{ secrets.DB_USERNAME }}
+    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+
+    CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+    CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+    CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+
 
 jobs:
   event-microservice:
     runs-on: ubuntu-latest
 
-    env:
-        VERSION: ${{ github.sha }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
-
-        CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
-        CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
-        CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+    defaults:
+      run: 
+        working-directory: 'backend/Microservices/Events'
 
 
     steps:
@@ -45,9 +50,6 @@ jobs:
         working-directory: backend/Microservices/Events
         run: npm ci
 
-      #- name: Run Tests
-      #  working-directory: backend/Microservices/Events
-      #  run: npm test  # Ensure you have test scripts in package.json
 
 
   docker-build-and-run:
@@ -59,13 +61,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker Image
-        run: docker build -t $CONTAINER_REGISTRY_LOGIN_SERVER/event-microservice:$VERSION -f backend/Microservices/Events/Dockerfile backend --no-cache
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/event-microservice:latest -f backend/Microservices/Events/Dockerfile backend
       
       - name: Push Docker Image to Azure Container Registry
         working-directory: 'backend/Microservices/Events'
         run: |
-          echo $CONTAINER_REGISTRY_PASSWORD | docker login $CONTAINER_REGISTRY_LOGIN_SERVER -u $CONTAINER_REGISTRY_USERNAME --password-stdin
-          docker push $CONTAINER_REGISTRY_LOGIN_SERVER/event-microservice:$VERSION
+          echo ${CONTAINER_REGISTRY_PASSWORD} | docker login ${CONTAINER_REGISTRY_LOGIN_SERVER} -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
+          docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/event-microservice:latest
+
 
       #- name: Build Docker Image
       #  run: |

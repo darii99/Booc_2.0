@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: event-microservice-deployment
+  name: event-microservice
+  namespace: default
   labels:
     app: event-microservice
 spec:
@@ -16,16 +17,17 @@ spec:
     spec:
       containers:
       - name: event-microservice
-        image: $CONTAINER_REGISTRY_LOGIN_SERVER/event-microservice:$VERSION
+        image: $CONTAINER_REGISTRY_LOGIN_SERVER/event-microservice:latest
         env:
         - name: PORT
           value: "3400"
-        - name: DB_USERNAME
-          value: $DB_USERNAME
-        - name: DB_PASSWORD
-          value: $DB_PASSWORD
-        - name: SESSION_SECRET
-          value: $SESSION_SECRET
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi 
 ---
 apiVersion: v1
 kind: Service
