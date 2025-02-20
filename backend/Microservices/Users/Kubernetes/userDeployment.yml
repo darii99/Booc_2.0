@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-microservice-deployment
+  name: user-microservice
   labels:
     app: user-microservice
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-microservice
-        image: $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION
+        image: ${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:latest
         env:
         - name: PORT
           value: "3200"
