@@ -74,8 +74,8 @@ jobs:
       - name: Push Docker Image to Azure Container Registry
         working-directory: 'backend/Microservices/Users'
         run: |
-          echo $CONTAINER_REGISTRY_PASSWORD | docker login $CONTAINER_REGISTRY_LOGIN_SERVER -u $CONTAINER_REGISTRY_USERNAME --password-stdin
-          docker push $CONTAINER_REGISTRY_LOGIN_SERVER/user-microservice:$VERSION
+          echo ${CONTAINER_REGISTRY_PASSWORD} | docker login ${CONTAINER_REGISTRY_LOGIN_SERVER} -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
+          docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/user-microservice:latest
 
 
 
