@@ -93,7 +93,7 @@ jobs:
 
       - name: Deploy User Manifest to the AKS cluster (Azure Kubernetes Service)
         run: | 
-          envsubst < Kubernetes_Manifests/groupDeployment.yml > groupDeployment.processed.yml
+          envsubst < backend/Microservices/Groups/Kubernetes/groupDeployment.yml > groupDeployment.processed.yml
           kubectl apply -f groupDeployment.processed.yml
 
           
