@@ -7,7 +7,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
   dns_prefix          = var.app_name
-  kubernetes_version  = var.kubernetes_version
+
 
   default_node_pool {
     name       = "default"
@@ -22,11 +22,10 @@ identity {
 
 
 
-resource "azurerm_role_assignment" "main" {
-  principal_id                     = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
-  role_definition_name             = "AcrPull"
-  scope                            = azurerm_container_registry.main.id
-  skip_service_principal_aad_check = true
+
+resource "azurerm_kubernetes_cluster_acr" "main" {
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.main.id
+  acr_name              = azurerm_container_registry.main.name
 }
 
 
