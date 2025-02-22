@@ -2,10 +2,10 @@ const axios = require('axios');
 const eventModel = require('./eventModel');
 const eventController = require('./eventController');
 
-// Mocking Axios
+//Mocking Axios
 jest.mock('axios');
 
-// Mocking eventModel functions
+//Mocking eventModel functions
 jest.mock('./eventModel', () => ({
     createEvent: jest.fn(),
     deleteEventModel: jest.fn(),
@@ -26,6 +26,7 @@ jest.mock('./eventModel', () => ({
       jest.clearAllMocks();
     });
   
+    //Simulate a request body for event creation
     test('Creating an event successfully', async () => {
       req.body = {
         title: 'Meeting',
@@ -40,10 +41,13 @@ jest.mock('./eventModel', () => ({
         invitePeople: [['john_doe', '456']]
       };
   
+      //Mock the createEvent function to return a dummy event ID
       eventModel.createEvent.mockResolvedValue({ eventId: 'abc123' });
   
+      //Call the controller function
       await eventController.createEvent(req, res);
   
+      //Verify that createEvent was called with correct parameters
       expect(eventModel.createEvent).toHaveBeenCalledWith(
         'Meeting',
         '2025-03-25',
@@ -58,6 +62,7 @@ jest.mock('./eventModel', () => ({
         { username: 'testUser', identifier: '123' }
       );
   
+      //Expect a successful response
       expect(res.status).toHaveBeenCalledWith(201);
       expect(res.send).toHaveBeenCalledWith({ result: { eventId: 'abc123' } });
     });
