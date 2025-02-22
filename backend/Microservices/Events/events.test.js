@@ -96,4 +96,26 @@ jest.mock('./eventModel', () => ({
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({ msg: 'Failed to get events' });
   });
+
+  //Simulate missing required fields, causing test fail
+  test('Required fields are missing', async () => {
+    req.body = { title: '', date: '', fromTime: '', toTime: '', location: '' };
+  
+    await eventController.createEvent(req, res);
+  
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.send).toHaveBeenCalledWith({ msg: 'Missing required fields' });
+  });
+
+  //Simulate unauthorized event deletion, causing test fail
+  test('Attempt to delete someone else’s event', async () => {
+    req.body = { _id: 'event123' };
+    eventModel.checkIfCreator.mockResolvedValue(false); // Not the creator
+  
+    await eventController.deleteEvent(req, res);
+  
+    expect(res.status).toHaveBeenCalledWith(403);
+    expect(res.send).toHaveBeenCalledWith({ msg: 'User does not have the authority to delete this event' });
+  });
+
 });
