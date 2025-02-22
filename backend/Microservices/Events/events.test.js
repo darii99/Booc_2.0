@@ -13,13 +13,7 @@ jest.mock('./eventModel', () => ({
     getEvents: jest.fn()
   }));
 
-  describe('Event Controller Tests', () => {
-    test('dummy test', () => {
-      expect(true).toBe(true);
-    });
-  });
-
-
+ 
   describe('Event Controller Tests', () => {
     let req, res;
   
@@ -67,4 +61,36 @@ jest.mock('./eventModel', () => ({
       expect(res.status).toHaveBeenCalledWith(201);
       expect(res.send).toHaveBeenCalledWith({ result: { eventId: 'abc123' } });
     });
+
+
+
+  test('should return 403 if user is not the event creator', async () => {
+    req.body = { _id: 'event123' };
+    eventModel.checkIfCreator.mockResolvedValue(null);
+
+    await eventController.deleteEvent(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(403);
+    expect(res.send).toHaveBeenCalledWith({ msg: 'User does not have the authority to delete this event' });
   });
+
+  test('should return 500 if deletion fails', async () => {
+    req.body = { _id: 'event123' };
+    eventModel.checkIfCreator.mockResolvedValue(true);
+    eventModel.deleteEventModel.mockResolvedValue(null);
+
+    await eventController.deleteEvent(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith({ msg: "Couldn't Delete Event" });
+  });
+
+  test('should return 500 if getEvents fails', async () => {
+    eventModel.getEvents.mockResolvedValue(null);
+
+    await eventController.getEvents(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.send).toHaveBeenCalledWith({ msg: 'Failed to get events' });
+  });
+});
