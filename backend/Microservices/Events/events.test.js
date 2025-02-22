@@ -52,11 +52,11 @@ jest.mock('./eventModel', () => ({
   
       expect(eventModel.createEvent).toHaveBeenCalledWith(
         'Meeting',
-        '2025-02-25',
+        '2025-03-25',
         '10:00',
         '12:00',
         'Room A',
-        'Team meeting',
+        'Test meeting',
         'blue',
         false,
         'public',
