@@ -50,6 +50,8 @@ jobs:
         working-directory: backend/Microservices/Events
         run: npm ci
 
+      - name: Run Tests
+        run: npm test
 
 
   docker-build-and-run:

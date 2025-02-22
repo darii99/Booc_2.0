@@ -62,8 +62,6 @@ jest.mock('./eventModel', () => ({
       expect(res.send).toHaveBeenCalledWith({ result: { eventId: 'abc123' } });
     });
 
-
-
   test('should return 403 if user is not the event creator', async () => {
     req.body = { _id: 'event123' };
     eventModel.checkIfCreator.mockResolvedValue(null);
