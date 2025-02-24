@@ -14,6 +14,12 @@ app.use(express.json());
 app.use("/user", router);
 
 
+app.get('/', (req, res) => {
+  res.send('This is the User Microservice');
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`"Users" microservice is running on port ${PORT}`);
 });

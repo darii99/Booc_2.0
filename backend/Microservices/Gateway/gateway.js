@@ -23,6 +23,11 @@ app.use('/event', createProxyMiddleware({ target: services.event, changeOrigin: 
 app.use('/group', createProxyMiddleware({ target: services.group, changeOrigin: true }));
 
 
+app.get('/', (req, res) => {
+    res.send('This is the Gateway Microservice');
+  });
+  
+
 
 app.listen(PORT, () => {
     console.log(`Gateway API running on port ${PORT}`);

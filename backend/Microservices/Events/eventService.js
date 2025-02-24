@@ -14,6 +14,12 @@ app.use(express.json());
 app.use("/event", router);
 
 
+app.get('/', (req, res) => {
+  res.send('This is the Event Microservice');
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`"Event" microservice is running on port ${PORT}`);
 });
