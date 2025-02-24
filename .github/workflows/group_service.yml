@@ -75,15 +75,7 @@ jobs:
           docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/group-microservice:latest
 
 
-
-      #- name: Build Docker Image
-      #  run: |
-      #   docker build -t group_service:latest -f backend/Microservices/Groups/Dockerfile backend --no-cache
-
-      #- name: Run Docker Container Locally
-      #  run: |
-      #    docker run -d -p 3600:3600 --name group_service group_service:latest
-
+          
       - name: Install Kubectl
         uses: tale/kubectl-action@v1
         with:
