@@ -14,6 +14,12 @@ app.use(express.json());
 app.use("/group", router);
 
 
+app.get('/', (req, res) => {
+  res.send('This is the Group Microservice');
+});
+
+
+
 app.listen(PORT, () => {
   console.log(`"Group" microservice is running on port ${PORT}`);
 });
