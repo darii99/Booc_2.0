@@ -9,8 +9,8 @@ COPY package*.json ./
 # install dependencies
 RUN npm ci --omit=dev
 
-#COPY /Microservices/Events/ ./
-COPY . ./
+COPY Microservices/Events/ ./
+#COPY . ./
 
 # port the service runs on
 EXPOSE 3400
