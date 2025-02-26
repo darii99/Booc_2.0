@@ -24,6 +24,7 @@ spec:
         startupProbe:
           exec:
             command:
+              - cat
               - /tmp/started
           initialDelaySeconds: 5
           periodSeconds: 4
