@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - deploy-frontend
     paths:
       - 'frontend/**' # Trigger workflow when code in this path changes
   
@@ -85,4 +86,3 @@ jobs:
             envsubst < frontend/Kubernetes/frontendDeployment.yml > frontendDeployment.processed.yml
             kubectl apply -f frontendDeployment.processed.yml
 
-            
