@@ -21,6 +21,28 @@ spec:
         env:
         - name: PORT
           value: "3400"
+        startupProbe:
+          exec:
+            command:
+              - cat
+              - /tmp/started
+          initialDelaySeconds: 12
+          periodSeconds: 4
+          failureThreshold: 10
+        readinessProbe:
+          httpGet:
+            path: /health/readiness
+            port: 3400
+          initialDelaySeconds: 25
+          periodSeconds: 5
+          failureThreshold: 3
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3400
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
         resources:
           requests:
             cpu: 100m
