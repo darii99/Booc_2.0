@@ -61,10 +61,10 @@ async function simulateStartup() {
 
   // write startup file to indicate "started" for the startup probe
   try {
-    fs.writeFileSync(startupFile, 'started');
-    console.log(`Wrote file ${startupFile} for startup probe`);
+    fs.writeFileSync(startupFile, 'started user ms');
+    console.log(`Wrote file ${startupFile} for 'User' startup probe`);
   } catch(err) {
-    console.error('Error writing startup file:', err);
+    console.error('Error writing startup file for user ms:', err);
   }
 
 
