@@ -21,13 +21,23 @@ const SLEEP_TIME = 10000;    //10000ms = 10 seconds
 const tmpDir = os.tmpdir();
 const startupFile = path.join(tmpDir, 'started');
 
-
+/** 
 // Microservice endpoints
 const services = {
     user: 'http://localhost:3200',
     event: 'http://localhost:3400',
     group: 'http://localhost:3600'
 };
+*/
+
+
+// Microservice endpoints
+const services = {
+  user: 'http://user-microservice:3200',
+  event: 'http://event-microservice:3400',
+  group: 'http://group-microservice:3600'
+};
+
 
 
 // proxy middleware for microservices
@@ -96,8 +106,3 @@ simulateStartup();
 
 
 
-/** 
-app.listen(PORT, () => {
-    console.log(`Gateway API running on port ${PORT}`);
-});
-*/
