@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: default
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ${CONTAINER_REGISTRY_LOGIN_SERVER}/frontend:latest
+        env:
+        - name: PORT
+          value: "5000"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 5000
+      targetPort: 5000
+  selector:
+    app: frontend
+

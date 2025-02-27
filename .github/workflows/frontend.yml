@@ -1,0 +1,88 @@
+name: CI/CD for Frontend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**' # Trigger workflow when code in this path changes
+  
+  pull_request:
+    branches:
+        - main
+
+
+  workflow_dispatch:
+
+env:
+    VERSION: ${{ github.sha }}
+    DB_USERNAME: ${{ secrets.DB_USERNAME }}
+    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+
+    CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+    CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+    CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: 'frontend' 
+    
+ 
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+
+      - name: Install Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      #- name: Run Tests
+      #  run: npm test
+
+
+  docker-build-and-run:
+    needs: frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/frontend:latest -f frontend/src/Dockerfile frontend
+        
+      - name: Push Docker Image to Azure Container Registry
+        working-directory: 'frontend'
+        run: |
+            echo ${CONTAINER_REGISTRY_PASSWORD} | docker login ${CONTAINER_REGISTRY_LOGIN_SERVER} -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
+            docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/frontend:latest
+
+
+      - name: Install Kubectl
+        uses: tale/kubectl-action@v1
+        with:
+            base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+            kubectl-version: v1.32.0
+
+
+      - name: Deploy User Manifest to the AKS cluster (Azure Kubernetes Service)
+        run: | 
+            envsubst < frontend/Kubernetes/frontendDeployment.yml > frontendDeployment.processed.yml
+            kubectl apply -f frontendDeployment.processed.yml
+
+            
