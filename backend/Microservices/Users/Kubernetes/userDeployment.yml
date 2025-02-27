@@ -26,7 +26,7 @@ spec:
             command:
               - cat
               - /tmp/started
-          initialDelaySeconds: 5
+          initialDelaySeconds: 12
           periodSeconds: 4
           failureThreshold: 10
         readinessProbe:

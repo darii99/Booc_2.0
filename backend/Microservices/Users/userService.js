@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-const SLEEP_TIME = 5000;    //5000ms = 5 seconds
-const HEALTHZ_TIME = 20000;  //20000ms = 20 seconds
+const SLEEP_TIME = 10000;    //5000ms = 5 seconds
+const HEALTHZ_TIME = 40000;  //20000ms = 20 seconds
 
 
 
