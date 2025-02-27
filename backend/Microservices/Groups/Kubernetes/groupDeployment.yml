@@ -32,14 +32,14 @@ spec:
         readinessProbe:
           httpGet:
             path: /health/readiness
-            port: 3200
+            port: 3600
           initialDelaySeconds: 25
           periodSeconds: 5
           failureThreshold: 3
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 3200
+            port: 3600
           initialDelaySeconds: 30
           periodSeconds: 10
           failureThreshold: 3
