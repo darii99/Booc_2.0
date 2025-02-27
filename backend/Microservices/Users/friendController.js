@@ -1,7 +1,7 @@
 
 const { //getCurrentUser:getCurrentUserModel,
         addFriend:addFriendModel,
-        deleteFriend:deleteFriendModel } = require("../Microservices/Users/usersModel");
+        deleteFriend:deleteFriendModel } = require("./usersModel");
 
 
 /* 
