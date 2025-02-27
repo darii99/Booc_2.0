@@ -1,6 +1,9 @@
 name: CI/CD for Frontend
 
-on:
+on:  
+
+  workflow_dispatch:
+    
   push:
     branches:
       - main
@@ -13,7 +16,7 @@ on:
         - main
 
 
-  workflow_dispatch:
+
 
 env:
     VERSION: ${{ github.sha }}
