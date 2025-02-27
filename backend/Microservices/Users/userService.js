@@ -31,14 +31,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/healthz', (req, res) => {
-  res.status(200).send('Users microservice is healthy');
+  res.status(200).send('User microservice is healthy');
 });
 
 app.get('/health/readiness', (req, res) => {
   if (isReady) {
-    res.status(200).send('Users microservice is ready');
+    res.status(200).send('User microservice is ready');
   } else {
-    res.status(500).send('Users microservice is not ready');
+    res.status(500).send('User microservice is not ready');
   }
 });
 
@@ -70,12 +70,12 @@ async function simulateStartup() {
 
   await sleep(SLEEP_TIME);  // time between startup and ready
   isReady = true;
-  console.log('Users microservice is ready');
+  console.log('User microservice is ready');
 
 
   // start server
   app.listen(PORT, () => {
-    console.log(`"Users" microservice is running on port ${PORT}`);
+    console.log(`"User" microservice is running on port ${PORT}`);
   });
 }
 
