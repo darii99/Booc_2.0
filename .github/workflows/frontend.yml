@@ -1,9 +1,6 @@
 name: CI/CD for Frontend
 
-on:  
-
-  workflow_dispatch:
-    
+on: 
   push:
     branches:
       - main
@@ -15,6 +12,7 @@ on:
     branches:
         - main
 
+  workflow_dispatch:
 
 
 
@@ -68,7 +66,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker Image
-        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/frontend:latest -f frontend/src/Dockerfile frontend
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/frontend:latest -f frontend/Dockerfile frontend
         
       - name: Push Docker Image to Azure Container Registry
         working-directory: 'frontend'

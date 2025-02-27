@@ -8,9 +8,10 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 #RUN npm install
 
-COPY src/ ./
+#COPY src/ ./
+COPY . .
 
-#EXPOSE 4000
+EXPOSE 5000
 
-CMD npm start
+CMD ["npm", "start"]
 
