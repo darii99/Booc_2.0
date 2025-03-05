@@ -9,7 +9,7 @@ export async function login(email, password){
         password: password,
       },{
         headers:{
-          "Access-Control-Allow-Origin": "http://localhost:6400",
+          "Access-Control-Allow-Origin": "http://gateway:4000",
           "Access-Control-Allow-Credentials":"true",
         }
       })

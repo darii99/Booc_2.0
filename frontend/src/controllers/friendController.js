@@ -44,7 +44,7 @@ export async function addFriend(newFriend)
     },{
 
         headers: {
-            "Access-Control-Allow-Origin": "http://localhost:6400",         //allow requests from this origin
+            "Access-Control-Allow-Origin": "http://gateway:4000",         //allow requests from this origin
             "Access-Control-Allow-Credentials":"true",                      //allow credentials (cookies) in the requests
         }
     })
@@ -85,7 +85,7 @@ export async function deleteFriend(currentUserID, friendsUsername, friendIdentif
     try {
         const response = await api.delete('/api/users/deleteFriend', {
             headers: {
-                "Access-Control-Allow-Origin": "http://localhost:6400",         //allow requests from this origin
+                "Access-Control-Allow-Origin": "http://gateway:4000",         //allow requests from this origin
                 "Access-Control-Allow-Credentials":"true",                      //allow credentials (cookies) in the requests
             },
             data: {

@@ -10,7 +10,7 @@ export async function getGroup(groupName){
           }
         },{
           headers:{
-            "Access-Control-Allow-Origin": "http://localhost:6400",
+            "Access-Control-Allow-Origin": "http://gateway:4000",
             "Access-Control-Allow-Credentials":"true",
           }
         })
@@ -38,7 +38,7 @@ export async function getAllGroups(){
     await api.get('/api/groups', {
         },{
           headers:{
-            "Access-Control-Allow-Origin": "http://localhost:6400",
+            "Access-Control-Allow-Origin": "http://gateway:4000",
             "Access-Control-Allow-Credentials":"true",
           }
         })
@@ -67,7 +67,7 @@ export async function createGroup(groupName, members){
           members:members,
         },{
           headers:{
-            "Access-Control-Allow-Origin": "http://localhost:6400",
+            "Access-Control-Allow-Origin": "http://gateway:4000",
             "Access-Control-Allow-Credentials":"true",
           }
         })
@@ -98,7 +98,7 @@ export async function updateGroup(currentGroupName, groupName,owners,members){
             members:members,
         },{
           headers:{
-            "Access-Control-Allow-Origin": "http://localhost:6400",
+            "Access-Control-Allow-Origin": "http://gateway:4000",
             "Access-Control-Allow-Credentials":"true",
           }
         })
@@ -125,7 +125,7 @@ export async function deleteGroup(groupName){
     await api.delete('/api/group', 
         {
         headers:{
-          "Access-Control-Allow-Origin": "http://localhost:6400",
+          "Access-Control-Allow-Origin": "http://gateway:4000",
           "Access-Control-Allow-Credentials":"true",
         },
         data: {
@@ -155,7 +155,7 @@ export async function leaveGroup(groupName){
   await api.delete('/api/groups', 
       {
       headers:{
-        "Access-Control-Allow-Origin": "http://localhost:6400",
+        "Access-Control-Allow-Origin": "http://gateway:4000",
         "Access-Control-Allow-Credentials":"true",
       },
       data: {

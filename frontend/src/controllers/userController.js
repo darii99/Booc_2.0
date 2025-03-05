@@ -29,7 +29,7 @@ export async function changeStartPage(startPage){
         startPage:startPage,
       },{
         headers:{
-          "Access-Control-Allow-Origin": "http://localhost:6400",
+          "Access-Control-Allow-Origin": "http://gateway:4000",
           "Access-Control-Allow-Credentials":"true",
         }
       })
@@ -57,7 +57,7 @@ export async function changePassword(password) {
         password:password,
       },{
         headers:{
-          "Access-Control-Allow-Origin": "http://localhost:6400",
+          "Access-Control-Allow-Origin": "http://gateway:4000",
           "Access-Control-Allow-Credentials":"true",
         }
       })
@@ -83,7 +83,7 @@ export async function deleteUser() {
   var ProccesedResponse = "";
   await api.delete('/api/users',{
         headers:{
-          "Access-Control-Allow-Origin": "http://localhost:6400",
+          "Access-Control-Allow-Origin": "http://gateway:4000",
           "Access-Control-Allow-Credentials":"true",
         }
       })

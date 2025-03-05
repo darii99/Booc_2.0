@@ -28,7 +28,7 @@ export async function deleteEvent(_id)
   await api.delete('/api/event', 
     {
       headers: {
-        "Access-Control-Allow-Origin": "http://localhost:6400",
+        "Access-Control-Allow-Origin": "http://gateway:4000",
         "Access-Control-Allow-Credentials":"true",
       },
       data: {
