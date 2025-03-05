@@ -25,14 +25,14 @@ const {Server} = require("socket.io");
 
 
 const corsconfig = {
-  origin: "http://frontend:5000",
+  origin: "http://9.223.175.66:5000",
   credentials: true,
 }
 
 const server = http.createServer(app);
 io = new Server(server,{
   cors: {
-    origin: "http://frontend:5000",
+    origin: "http://9.223.175.66:5000",
     credentials: true,
   }
 });
