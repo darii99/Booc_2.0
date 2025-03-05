@@ -57,6 +57,7 @@ metadata:
   name: gateway
 spec:
   type: LoadBalancer
+  loadBalancerIP: 9.223.169.94
   ports:
     - port: 4000
       targetPort: 4000
