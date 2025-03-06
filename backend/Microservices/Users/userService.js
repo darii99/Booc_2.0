@@ -9,7 +9,7 @@ const PORT = 3200;
 
 require('dotenv').config({path: require('find-config')('.env')});
 
-app.use(cors());
+//app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
