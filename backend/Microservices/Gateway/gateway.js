@@ -8,7 +8,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const PORT = 4000; 
 
 
-//app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -29,6 +29,15 @@ const services = {
     group: 'http://localhost:3600'
 };
 */
+
+
+const corsconfig = {
+  origin: "http://9.223.144.115:5000",
+  credentials: true,
+}
+
+app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
+app.use(cors(corsconfig));
 
 
 // Microservice endpoints

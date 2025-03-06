@@ -23,11 +23,16 @@ var app = express();
 const http = require('http');
 const {Server} = require("socket.io");
 
-
+/* 
 const corsconfig = {
   origin: "http://9.223.144.115:5000",
   credentials: true,
 }
+
+app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
+app.use(cors(corsconfig));
+*/
+
 
 const server = http.createServer(app);
 io = new Server(server,{
@@ -43,12 +48,6 @@ app.use(function(req, res, next){
   //console.log("Testing")
   next();
 })
-
-
-
-app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
-app.use(cors(corsconfig));
-
 
 
 //Creates mongoDB connection for session storage, https://www.npmjs.com/package/connect-mongodb-session
