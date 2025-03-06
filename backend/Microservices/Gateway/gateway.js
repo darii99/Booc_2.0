@@ -33,9 +33,9 @@ const services = {
 
 // Microservice endpoints
 const services = {
-  user: 'http://user-microservice:3200',
-  event: 'http://event-microservice:3400',
-  group: 'http://group-microservice:3600'
+  user: 'http://10.0.24.134:3200',
+  event: 'http://10.0.127.225:3400',
+  group: 'http://10.0.57.4:3600'
 };
 
 
