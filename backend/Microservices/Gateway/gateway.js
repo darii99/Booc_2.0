@@ -8,6 +8,16 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const PORT = 4000; 
 
 
+
+const corsconfig = {
+  origin: "http://9.223.144.115:5000",
+  credentials: true,
+}
+
+app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
+app.use(cors(corsconfig));
+
+
 //app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -20,24 +30,6 @@ const SLEEP_TIME = 10000;    //10000ms = 10 seconds
 // OS-specific temporary directory for the startup file
 const tmpDir = os.tmpdir();
 const startupFile = path.join(tmpDir, 'started');
-
-/** 
-// Microservice endpoints
-const services = {
-    user: 'http://localhost:3200',
-    event: 'http://localhost:3400',
-    group: 'http://localhost:3600'
-};
-*/
-
-
-const corsconfig = {
-  origin: "http://9.223.144.115:5000",
-  credentials: true,
-}
-
-app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
-app.use(cors(corsconfig));
 
 
 // Microservice endpoints
