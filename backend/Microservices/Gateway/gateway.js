@@ -39,11 +39,19 @@ const services = {
 };
 
 
-
+/* 
 // proxy middleware for microservices
 app.use('/user', createProxyMiddleware({ target: services.user, changeOrigin: true }));
 app.use('/event', createProxyMiddleware({ target: services.event, changeOrigin: true }));
 app.use('/group', createProxyMiddleware({ target: services.group, changeOrigin: true }));
+*/
+
+
+// proxy middleware for microservices
+app.use('/api', createProxyMiddleware({ target: services.user, changeOrigin: true, pathRewrite: {'^/api': '/user'} }));
+app.use('/api', createProxyMiddleware({ target: services.event, changeOrigin: true, pathRewrite: {'^/api': '/event'} }));
+app.use('/api', createProxyMiddleware({ target: services.group, changeOrigin: true, pathRewrite: {'^/api': '/group'} }));
+
 
 
 app.get('/', (req, res) => {
