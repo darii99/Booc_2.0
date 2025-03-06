@@ -48,7 +48,7 @@ app.use('/group', createProxyMiddleware({ target: services.group, changeOrigin: 
 
 
 // proxy middleware for microservices
-app.use('/api', createProxyMiddleware({ target: services.user, changeOrigin: true, pathRewrite: {'^/api': '/user'} }));
+app.use('/api', createProxyMiddleware({ target: services.user, changeOrigin: true, pathRewrite: {'^/api': '/users'} }));
 app.use('/api', createProxyMiddleware({ target: services.event, changeOrigin: true, pathRewrite: {'^/api': '/event'} }));
 app.use('/api', createProxyMiddleware({ target: services.group, changeOrigin: true, pathRewrite: {'^/api': '/group'} }));
 
