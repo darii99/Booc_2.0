@@ -26,7 +26,7 @@ const {Server} = require("socket.io");
 
 const corsconfig = {
   origin: "http://9.223.144.115:5000",
-  //credentials: true,
+  credentials: true,
 }
 
 const server = http.createServer(app);
