@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - deploy-frontend
+      - external_routes
     paths:
       - 'frontend/**' # Trigger workflow when code in this path changes
   

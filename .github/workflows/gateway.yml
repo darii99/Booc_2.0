@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - external_routes
     paths:
       - 'backend/Microservices/Gateway/**' # Trigger workflow when code in this path changes
   

@@ -46,8 +46,10 @@ app.use(function(req, res, next){
 
 
 
-app.options("*", cors(corsconfig))
+app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
 app.use(cors(corsconfig));
+
+
 
 //Creates mongoDB connection for session storage, https://www.npmjs.com/package/connect-mongodb-session
 var store = new MongoDBStore({
@@ -91,10 +93,8 @@ io.on('connection', (socket) => {
     console.log(err);
   }
   })
+});
 
-  
-
-})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
