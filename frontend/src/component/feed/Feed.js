@@ -18,9 +18,9 @@ import ModifyGroupModal from '../forms/modify_group_form';
 import {io} from 'socket.io-client';
 import { useRevalidator } from 'react-router';
 import { getAllGroups } from '../../modelData/group';
-const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:6401';
+const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://9.223.169.233:4000';
 
-const socket = io("http://localhost:6401", {
+const socket = io("http://9.223.169.233:4000", {
     withCredentials: true,
     /** 
     headers:{
@@ -28,6 +28,9 @@ const socket = io("http://localhost:6401", {
         "Access-Control-Allow-Credentials":"true",
       }*/
   });
+  socket.on('connect', () => console.log('Socket Connected!'));
+  socket.on('connect_error', (err) => console.error('Socket Error:', err));
+
 
 function Feed() {
     const revalidator = useRevalidator();

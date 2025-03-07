@@ -13,7 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require("./routes/api");
 
-const PORT = 6400;
+const PORT = 4000;
 
 const responseHandler = require('./services/responseHandler');
 
