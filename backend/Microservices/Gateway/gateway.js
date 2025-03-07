@@ -60,6 +60,10 @@ function createDynamicProxy(targetIP)
   return createProxyMiddleware({ 
     target: `http://${targetIP}`, 
     changeOrigin: true,
+    //exclude OPTIONS requests from the proxy
+    filter: (path, req) => {
+      return req.method !== 'OPTIONS';
+    },
     onProxyReq:(proxyReq, req, res) => 
       {
       if(req.body) 
@@ -78,9 +82,9 @@ function createDynamicProxy(targetIP)
   });
 }
 
-app.use('api/users', createDynamicProxy('10.0.24.134'));
-app.use('api/event', createDynamicProxy('10.0.127.225'));
-app.use('api/group', createDynamicProxy('10.0.57.4'));
+app.use('/api/users', createDynamicProxy('10.0.24.134'));
+app.use('/api/event', createDynamicProxy('10.0.127.225'));
+app.use('/api/group', createDynamicProxy('10.0.57.4'));
 
 
 
