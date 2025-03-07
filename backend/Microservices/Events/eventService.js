@@ -4,7 +4,8 @@ const cors = require('cors');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const router = require("./eventRoutes");
+//const router = require("./eventRoutes");
+const router = require("../../routes/api");
 const PORT = 3400;
 
 require('dotenv').config({path: require('find-config')('.env')});
