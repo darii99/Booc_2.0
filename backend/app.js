@@ -37,7 +37,7 @@ app.use(cors(corsconfig));
 const server = http.createServer(app);
 io = new Server(server,{
   cors: {
-    origin: "http://9.223.144.115:5000",
+    origin: "http://9.223.79.178:5000",
     credentials: true,
   }
 });

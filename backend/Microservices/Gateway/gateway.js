@@ -10,7 +10,7 @@ const PORT = 4000;
 
 
 const corsconfig = {
-  origin: "http://9.223.144.115:5000",
+  origin: "http://9.223.79.178:5000",
   credentials: true,
 }
 
@@ -76,7 +76,7 @@ function createDynamicProxy(targetIP)
     },
     // Ensure proxied responses have correct CORS headers
     onProxyRes: (proxyRes, req, res) => {
-      proxyRes.headers['Access-Control-Allow-Origin'] = 'http://9.223.144.115:5000';
+      proxyRes.headers['Access-Control-Allow-Origin'] = 'http://9.223.79.178:5000';
       proxyRes.headers['Access-Control-Allow-Credentials'] = 'true';
     }
   });
