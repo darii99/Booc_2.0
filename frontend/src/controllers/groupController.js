@@ -8,11 +8,6 @@ export async function getGroup(groupName){
           params: {
             groupName:groupName,
           }
-        },{
-          headers:{
-            "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-            "Access-Control-Allow-Credentials":"true",
-          }
         })
         .then(function(response){
           //Test for failed login
@@ -35,13 +30,7 @@ export async function getGroup(groupName){
 //Will return array of groups that the user is in
 export async function getAllGroups(){
     var ProccesedResponse = "";
-    await api.get('/api/groups', {
-        },{
-          headers:{
-            "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-            "Access-Control-Allow-Credentials":"true",
-          }
-        })
+    await api.get('/api/groups')
         .then(function(response){
           //Test for failed login
           if(typeof response.data?.msg === "undefined" || response.data?.msg === "Failed to get groups"){
@@ -65,11 +54,6 @@ export async function createGroup(groupName, members){
     await api.post('/api/group', {
           groupName:groupName,
           members:members,
-        },{
-          headers:{
-            "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-            "Access-Control-Allow-Credentials":"true",
-          }
         })
         .then(function(response){
           //Test for failed login
@@ -96,11 +80,6 @@ export async function updateGroup(currentGroupName, groupName,owners,members){
             groupName:groupName,
             owners:owners,
             members:members,
-        },{
-          headers:{
-            "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-            "Access-Control-Allow-Credentials":"true",
-          }
         })
         .then(function(response){
           //Test for failed login
@@ -124,10 +103,6 @@ export async function deleteGroup(groupName){
     var ProccesedResponse = "";
     await api.delete('/api/group', 
         {
-        headers:{
-          "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-          "Access-Control-Allow-Credentials":"true",
-        },
         data: {
           groupName:groupName,
         }
@@ -154,10 +129,6 @@ export async function leaveGroup(groupName){
   var ProccesedResponse = "";
   await api.delete('/api/groups', 
       {
-      headers:{
-        "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-        "Access-Control-Allow-Credentials":"true",
-      },
       data: {
         groupName:groupName,
       }

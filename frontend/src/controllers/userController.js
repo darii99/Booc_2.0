@@ -27,11 +27,6 @@ export async function changeStartPage(startPage){
   var ProccesedResponse = "";
   await api.put('/api/users', {
         startPage:startPage,
-      },{
-        headers:{
-          "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-          "Access-Control-Allow-Credentials":"true",
-        }
       })
       .then(function(response){
         //Test for failed login
@@ -55,11 +50,6 @@ export async function changePassword(password) {
   var ProccesedResponse = "";
   await api.put('/api/password', {
         password:password,
-      },{
-        headers:{
-          "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-          "Access-Control-Allow-Credentials":"true",
-        }
       })
       .then(function(response){
         //Test for failed login
@@ -81,12 +71,7 @@ export async function changePassword(password) {
 //Deletes the currently logged in user
 export async function deleteUser() {
   var ProccesedResponse = "";
-  await api.delete('/api/users',{
-        headers:{
-          "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-          "Access-Control-Allow-Credentials":"true",
-        }
-      })
+  await api.delete('/api/users')
       .then(function(response){
         //Test for failed login
         if(typeof response.data?.msg === "undefined" || response.data?.msg === "Failed to delete user"){

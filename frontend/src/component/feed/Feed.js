@@ -22,10 +22,11 @@ const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhos
 
 const socket = io("http://localhost:6401", {
     withCredentials: true,
+    /** 
     headers:{
         "Access-Control-Allow-Origin": "http://localhost:6401",
         "Access-Control-Allow-Credentials":"true",
-      }
+      }*/
   });
 
 function Feed() {

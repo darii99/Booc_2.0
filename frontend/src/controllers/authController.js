@@ -7,11 +7,6 @@ export async function login(email, password){
   const response =  await api.post('/api/auth', {
         email:email,
         password: password,
-      },{
-        headers:{
-          "Access-Control-Allow-Origin": "http://9.223.169.233:4000",
-          "Access-Control-Allow-Credentials":"true",
-        }
       })
       .then(function(response){
         //Test for failed login
