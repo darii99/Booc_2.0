@@ -27,9 +27,6 @@ const socket = io("http://9.223.169.233:4000", {
         "Access-Control-Allow-Origin": "http://localhost:6401",
         "Access-Control-Allow-Credentials":"true",
       }*/
-  },
-  {
-    transports: ["websocket"]
   });
   socket.on('connect', () => console.log('Socket Connected!'));
   socket.on('connect_error', (err) => console.error('Socket Error:', err));

@@ -13,21 +13,21 @@ const {authenicate, authStatus, removeAuth} = require("./authController");
 
 
 //Users
-router.get("/api/users", getCurrentUser);
-router.post("/api/users", createUser);
-router.put("/api/users", changeStartPage);
-router.delete("/api/users", deleteUser);
-router.put("/api/password", changePassword);
-router.get("/api/auth", userAuth);
+router.get("/users", getCurrentUser);
+router.post("/users", createUser);
+router.put("/users", changeStartPage);
+router.delete("/users", deleteUser);
+router.put("/password", changePassword);
+router.get("/auth", userAuth);
 
 //Auth
-router.post("/api/auth", authenicate);
-router.get("/api/auth", authStatus);
-router.delete("/api/auth", removeAuth);
+router.post("/auth", authenicate);
+router.get("/auth", authStatus);
+router.delete("/auth", removeAuth);
 
 //Friend
-router.post("/api/users/addFriend", addFriend);
-router.delete("/api/users/deleteFriend", deleteFriend);
+router.post("/users/addFriend", addFriend);
+router.delete("/users/deleteFriend", deleteFriend);
 
 
 
