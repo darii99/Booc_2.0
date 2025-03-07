@@ -69,6 +69,11 @@ function createDynamicProxy(targetIP)
         proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
         proxyReq.write(bodyData);
       }
+    },
+    // Ensure proxied responses have correct CORS headers
+    onProxyRes: (proxyRes, req, res) => {
+      proxyRes.headers['Access-Control-Allow-Origin'] = 'http://9.223.144.115:5000';
+      proxyRes.headers['Access-Control-Allow-Credentials'] = 'true';
     }
   });
 }
