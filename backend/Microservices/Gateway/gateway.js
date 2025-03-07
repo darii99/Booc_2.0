@@ -31,14 +31,14 @@ const SLEEP_TIME = 10000;    //10000ms = 10 seconds
 const tmpDir = os.tmpdir();
 const startupFile = path.join(tmpDir, 'started');
 
-
+/* 
 // Microservice endpoints
 const services = {
   user: 'http://10.0.24.134:3200',
   event: 'http://10.0.127.225:3400',
   group: 'http://10.0.57.4:3600'
 };
-
+*/
 
 /* 
 // proxy middleware for microservices
@@ -47,11 +47,35 @@ app.use('/event', createProxyMiddleware({ target: services.event, changeOrigin: 
 app.use('/group', createProxyMiddleware({ target: services.group, changeOrigin: true }));
 */
 
-
+/* 
 // proxy middleware for microservices
 app.use('/api', createProxyMiddleware({ target: services.user, changeOrigin: true, pathRewrite: {'^/api': '/users'} }));
 app.use('/api', createProxyMiddleware({ target: services.event, changeOrigin: true, pathRewrite: {'^/api': '/event'} }));
 app.use('/api', createProxyMiddleware({ target: services.group, changeOrigin: true, pathRewrite: {'^/api': '/group'} }));
+*/
+
+
+function createDynamicProxy(targetIP) 
+{
+  return createProxyMiddleware({ 
+    target: `http://${targetIP}`, 
+    changeOrigin: true,
+    onProxyReq:(proxyReq, req, res) => 
+      {
+      if(req.body) 
+      {
+        const bodyData = JSON.stringify(req.body);
+        proxyReq.setHeader('Content-Type', 'application/json');
+        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        proxyReq.write(bodyData);
+      }
+    }
+  });
+}
+
+app.use('/user', createDynamicProxy('10.0.24.134'));
+app.use('/event', createDynamicProxy('10.0.127.225'));
+app.use('/group', createDynamicProxy('10.0.57.4'));
 
 
 
