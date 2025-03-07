@@ -14,7 +14,7 @@ const corsconfig = {
   credentials: true,
 }
 
-app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
+//app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
 app.use(cors(corsconfig));
 
 
@@ -73,9 +73,9 @@ function createDynamicProxy(targetIP)
   });
 }
 
-app.use('/user', createDynamicProxy('10.0.24.134'));
-app.use('/event', createDynamicProxy('10.0.127.225'));
-app.use('/group', createDynamicProxy('10.0.57.4'));
+app.use('api/users', createDynamicProxy('10.0.24.134'));
+app.use('api/event', createDynamicProxy('10.0.127.225'));
+app.use('api/group', createDynamicProxy('10.0.57.4'));
 
 
 
