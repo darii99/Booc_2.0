@@ -1,0 +1,88 @@
+name: CI/CD for Backend app.js
+
+on:
+  push:
+    branches:
+      - main
+      - external_routes
+      - app_deploy
+    paths:
+      - 'backend/**' # Trigger workflow when code in this path changes
+  
+  pull_request:
+    branches:
+        - main
+
+
+  workflow_dispatch:
+
+env:
+    VERSION: ${{ github.sha }}
+    DB_USERNAME: ${{ secrets.DB_USERNAME }}
+    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+
+    CONTAINER_REGISTRY_LOGIN_SERVER: ${{ secrets.CONTAINER_REGISTRY_LOGIN_SERVER }}
+    CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+    CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: 'backend' 
+    
+ 
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
+          cache: 'npm'
+          cache-dependency-path: 'backend/package-lock.json'
+
+
+      - name: Install Dependencies
+        working-directory: backend
+        run: npm ci
+
+      #- name: Run Tests
+      #  run: npm test
+
+
+  docker-build-and-run:
+    needs: backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/backend:latest -f ./Dockerfile
+        
+      - name: Push Docker Image to Azure Container Registry
+        working-directory: 'backend'
+        run: |
+            echo ${CONTAINER_REGISTRY_PASSWORD} | docker login ${CONTAINER_REGISTRY_LOGIN_SERVER} -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
+            docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/backend:latest
+
+
+      - name: Install Kubectl
+        uses: tale/kubectl-action@v1
+        with:
+            base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+            kubectl-version: v1.32.0
+
+
+      - name: Deploy User Manifest to the AKS cluster (Azure Kubernetes Service)
+        run: | 
+            envsubst < \Kubernetes/backend_appDeployment.yml > backend_appDeployment.processed.yml
+            kubectl apply -f backend_appDeployment.processed.yml
