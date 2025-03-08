@@ -9,7 +9,7 @@ COPY app.js ./
 RUN npm ci --omit=dev
 #RUN npm install
 
-COPY ./bin ./
+COPY ./bin ./bin
 COPY ./public ./public
 COPY ./routes ./routes
 COPY ./services ./services
