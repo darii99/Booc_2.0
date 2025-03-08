@@ -8,9 +8,9 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 #RUN npm install
 
-COPY ./ ./
+COPY . .
 
-#EXPOSE 4000
+EXPOSE 6400
 
 #CMD ["node", "gateway.js"]
 CMD ["npm", "start"]
