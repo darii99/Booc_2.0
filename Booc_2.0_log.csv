@@ -1,0 +1,439 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1741458461034,207,Signup,200,OK,Load Test 1-1,text,true,,530,271,3,3,http://localhost:6400/api/users,165,0,3
+1741458461134,145,Signup,200,OK,Load Test 1-2,text,true,,528,271,3,3,http://localhost:6400/api/users,115,0,1
+1741458461241,146,Login,200,OK,Load Test 1-1,text,true,,849,238,4,4,http://localhost:6400/api/auth,115,0,0
+1741458461387,0,Login-0,200,OK,Load Test 1-1,text,true,,301,0,4,4,null,0,0,0
+1741458461233,186,Signup,200,OK,Load Test 1-3,text,true,,530,271,4,4,http://localhost:6400/api/users,157,0,0
+1741458461279,145,Login,200,OK,Load Test 1-2,text,true,,855,238,4,4,http://localhost:6400/api/auth,117,0,0
+1741458461424,0,Login-0,200,OK,Load Test 1-2,text,true,,301,0,4,4,null,0,0,0
+1741458461334,159,Signup,200,OK,Load Test 1-4,text,true,,530,271,5,5,http://localhost:6400/api/users,126,0,0
+1741458461387,168,Signup,200,OK,Load Test 1-1,text,true,,528,271,6,6,http://localhost:6400/api/users,138,0,0
+1741458461419,139,Login,200,OK,Load Test 1-3,text,true,,850,238,6,6,http://localhost:6400/api/auth,109,0,0
+1741458461558,0,Login-0,200,OK,Load Test 1-3,text,true,,300,0,6,6,null,0,0,0
+1741458461434,181,Signup,200,OK,Load Test 1-5,text,true,,532,271,6,6,http://localhost:6400/api/users,150,0,0
+1741458461424,196,Signup,200,OK,Load Test 1-2,text,true,,528,271,6,6,http://localhost:6400/api/users,164,0,0
+1741458461493,140,Login,200,OK,Load Test 1-4,text,true,,851,238,6,6,http://localhost:6400/api/auth,111,0,0
+1741458461632,1,Login-0,200,OK,Load Test 1-4,text,true,,301,0,6,6,null,0,0,0
+1741458461533,169,Signup,200,OK,Load Test 1-6,text,true,,530,271,7,7,http://localhost:6400/api/users,139,0,1
+1741458461555,159,Login,200,OK,Load Test 1-1,text,true,,849,238,7,7,http://localhost:6400/api/auth,127,0,0
+1741458461714,0,Login-0,200,OK,Load Test 1-1,text,true,,301,0,7,7,null,0,0,0
+1741458461558,188,Signup,200,OK,Load Test 1-3,text,true,,526,271,8,8,http://localhost:6400/api/users,155,0,0
+1741458461616,164,Login,200,OK,Load Test 1-5,text,true,,851,238,8,8,http://localhost:6400/api/auth,129,0,0
+1741458461780,0,Login-0,200,OK,Load Test 1-5,text,true,,301,0,8,8,null,0,0,0
+1741458461620,171,Login,200,OK,Load Test 1-2,text,true,,849,238,8,8,http://localhost:6400/api/auth,141,0,0
+1741458461791,0,Login-0,200,OK,Load Test 1-2,text,true,,301,0,8,8,null,0,0,0
+1741458461633,220,Signup,200,OK,Load Test 1-4,text,true,,528,273,9,9,http://localhost:6400/api/users,191,0,0
+1741458461633,227,Signup,200,OK,Load Test 1-7,text,true,,526,273,9,9,http://localhost:6400/api/users,196,0,1
+1741458461703,163,Login,200,OK,Load Test 1-6,text,true,,851,238,9,9,http://localhost:6400/api/auth,130,0,0
+1741458461866,0,Login-0,200,OK,Load Test 1-6,text,true,,301,0,9,9,null,0,0,0
+1741458461746,177,Login,200,OK,Load Test 1-3,text,true,,848,238,9,9,http://localhost:6400/api/auth,147,0,0
+1741458461923,0,Login-0,200,OK,Load Test 1-3,text,true,,300,0,9,9,null,0,0,0
+1741458461715,215,Signup,200,OK,Load Test 1-1,text,true,,526,273,9,9,http://localhost:6400/api/users,186,0,0
+1741458461734,443,Signup,200,OK,Load Test 1-8,text,true,,526,273,12,12,http://localhost:6400/api/users,214,0,0
+1741458461930,249,Login,200,OK,Load Test 1-1,text,true,,854,239,12,12,http://localhost:6400/api/auth,138,0,0
+1741458462179,0,Login-0,200,OK,Load Test 1-1,text,true,,302,0,12,12,null,0,0,0
+1741458461860,326,Login,200,OK,Load Test 1-7,text,true,,850,239,12,12,http://localhost:6400/api/auth,180,0,0
+1741458462186,0,Login-0,200,OK,Load Test 1-7,text,true,,302,0,12,12,null,0,0,0
+1741458461854,361,Login,200,OK,Load Test 1-4,text,true,,850,239,12,12,http://localhost:6400/api/auth,145,0,0
+1741458462215,0,Login-0,200,OK,Load Test 1-4,text,true,,302,0,12,12,null,0,0,0
+1741458461781,447,Signup,200,OK,Load Test 1-5,text,true,,528,273,12,12,http://localhost:6400/api/users,407,0,0
+1741458461833,423,Signup,200,OK,Load Test 1-9,text,true,,526,273,13,13,http://localhost:6400/api/users,348,0,1
+1741458462034,289,Signup,200,OK,Load Test 1-11,text,true,,530,273,13,13,http://localhost:6400/api/users,240,0,1
+1741458462177,159,Login,200,OK,Load Test 1-8,text,true,,854,239,14,14,http://localhost:6400/api/auth,126,0,0
+1741458462335,0,Login-0,200,OK,Load Test 1-8,text,true,,302,0,14,14,null,0,0,0
+1741458461934,420,Signup,200,OK,Load Test 1-10,text,true,,528,273,14,14,http://localhost:6400/api/users,386,0,0
+1741458462135,227,Signup,200,OK,Load Test 1-12,text,true,,528,273,14,14,http://localhost:6400/api/users,197,0,1
+1741458462186,235,Signup,200,OK,Load Test 1-7,text,true,,530,273,14,14,http://localhost:6400/api/users,194,0,0
+1741458462179,247,Signup,200,OK,Load Test 1-1,text,true,,528,273,14,14,http://localhost:6400/api/users,215,0,0
+1741458462229,214,Login,200,OK,Load Test 1-5,text,true,,856,239,15,15,http://localhost:6400/api/auth,181,0,0
+1741458462442,0,Login-0,200,OK,Load Test 1-5,text,true,,302,0,15,15,null,0,0,0
+1741458461923,536,Signup,200,OK,Load Test 1-3,text,true,,526,273,15,15,http://localhost:6400/api/users,496,0,0
+1741458462256,221,Login,200,OK,Load Test 1-9,text,true,,852,239,15,15,http://localhost:6400/api/auth,192,0,0
+1741458462476,0,Login-0,200,OK,Load Test 1-9,text,true,,302,0,15,15,null,0,0,0
+1741458462215,271,Signup,200,OK,Load Test 1-4,text,true,,528,273,15,15,http://localhost:6400/api/users,240,0,0
+1741458461791,701,Signup,200,OK,Load Test 1-2,text,true,,530,273,15,15,http://localhost:6400/api/users,384,0,0
+1741458461866,636,Signup,200,OK,Load Test 1-6,text,true,,526,273,15,15,http://localhost:6400/api/users,603,0,0
+1741458462234,295,Signup,200,OK,Load Test 1-13,text,true,,528,273,15,15,http://localhost:6400/api/users,266,0,0
+1741458462322,228,Login,200,OK,Load Test 1-11,text,true,,855,239,16,16,http://localhost:6400/api/auth,186,0,0
+1741458462550,0,Login-0,200,OK,Load Test 1-11,text,true,,303,0,16,16,null,0,0,0
+1741458462353,198,Login,200,OK,Load Test 1-10,text,true,,851,239,16,16,http://localhost:6400/api/auth,159,0,0
+1741458462551,0,Login-0,200,OK,Load Test 1-10,text,true,,303,0,16,16,null,0,0,0
+1741458462335,283,Signup,200,OK,Load Test 1-8,text,true,,528,273,16,16,http://localhost:6400/api/users,252,0,0
+1741458462333,293,Signup,200,OK,Load Test 1-14,text,true,,530,273,16,16,http://localhost:6400/api/users,258,0,2
+1741458462425,223,Login,200,OK,Load Test 1-1,text,true,,852,239,17,17,http://localhost:6400/api/auth,187,0,0
+1741458462648,0,Login-0,200,OK,Load Test 1-1,text,true,,302,0,17,17,null,0,0,0
+1741458462421,243,Login,200,OK,Load Test 1-7,text,true,,856,239,17,17,http://localhost:6400/api/auth,200,0,0
+1741458462664,0,Login-0,200,OK,Load Test 1-7,text,true,,302,0,17,17,null,0,0,0
+1741458462491,679,Login,200,OK,Load Test 1-2,text,true,,852,239,22,22,http://localhost:6400/api/auth,236,0,0
+1741458463170,0,Login-0,200,OK,Load Test 1-2,text,true,,302,0,22,22,null,0,0,0
+1741458462485,689,Login,200,OK,Load Test 1-4,text,true,,852,239,22,22,http://localhost:6400/api/auth,169,0,0
+1741458463174,0,Login-0,200,OK,Load Test 1-4,text,true,,302,0,22,22,null,0,0,0
+1741458462501,686,Login,200,OK,Load Test 1-6,text,true,,854,239,22,22,http://localhost:6400/api/auth,219,0,0
+1741458463187,0,Login-0,200,OK,Load Test 1-6,text,true,,302,0,22,22,null,0,0,0
+1741458462528,664,Login,200,OK,Load Test 1-13,text,true,,851,239,22,22,http://localhost:6400/api/auth,296,0,0
+1741458463192,0,Login-0,200,OK,Load Test 1-13,text,true,,303,0,22,22,null,0,0,0
+1741458462458,740,Login,200,OK,Load Test 1-3,text,true,,849,239,22,22,http://localhost:6400/api/auth,199,0,0
+1741458463198,0,Login-0,200,OK,Load Test 1-3,text,true,,301,0,22,22,null,0,0,0
+1741458462362,847,Login,200,OK,Load Test 1-12,text,true,,853,239,22,22,http://localhost:6400/api/auth,551,0,0
+1741458463209,0,Login-0,200,OK,Load Test 1-12,text,true,,303,0,22,22,null,0,0,0
+1741458462433,791,Signup,200,OK,Load Test 1-15,text,true,,526,273,22,22,http://localhost:6400/api/users,740,0,1
+1741458462534,699,Signup,200,OK,Load Test 1-16,text,true,,528,273,22,22,http://localhost:6400/api/users,646,0,0
+1741458462476,762,Signup,200,OK,Load Test 1-9,text,true,,526,273,23,23,http://localhost:6400/api/users,719,0,0
+1741458462442,803,Signup,200,OK,Load Test 1-5,text,true,,530,273,23,23,http://localhost:6400/api/users,755,0,0
+1741458462633,638,Signup,200,OK,Load Test 1-17,text,true,,528,273,23,23,http://localhost:6400/api/users,587,0,1
+1741458462627,680,Login,200,OK,Load Test 1-14,text,true,,856,239,23,23,http://localhost:6400/api/auth,219,0,0
+1741458463307,0,Login-0,200,OK,Load Test 1-14,text,true,,302,0,23,23,null,0,0,0
+1741458462618,702,Login,200,OK,Load Test 1-8,text,true,,850,239,23,23,http://localhost:6400/api/auth,217,0,0
+1741458463320,0,Login-0,200,OK,Load Test 1-8,text,true,,302,0,23,23,null,0,0,0
+1741458462551,773,Signup,200,OK,Load Test 1-10,text,true,,528,273,23,23,http://localhost:6400/api/users,729,0,0
+1741458462550,793,Signup,200,OK,Load Test 1-11,text,true,,526,273,24,24,http://localhost:6400/api/users,743,0,0
+1741458462834,558,Signup,200,OK,Load Test 1-19,text,true,,526,273,24,24,http://localhost:6400/api/users,494,0,1
+1741458462664,741,Signup,200,OK,Load Test 1-7,text,true,,528,273,24,24,http://localhost:6400/api/users,685,0,0
+1741458462734,674,Signup,200,OK,Load Test 1-18,text,true,,526,273,24,24,http://localhost:6400/api/users,621,0,1
+1741458462648,762,Signup,200,OK,Load Test 1-1,text,true,,528,273,24,24,http://localhost:6400/api/users,716,0,0
+1741458463225,241,Login,200,OK,Load Test 1-15,text,true,,855,239,25,25,http://localhost:6400/api/auth,207,0,0
+1741458463465,1,Login-0,200,OK,Load Test 1-15,text,true,,303,0,25,25,null,0,0,0
+1741458462932,566,Signup,200,OK,Load Test 1-20,text,true,,526,273,25,25,http://localhost:6400/api/users,538,0,1
+1741458463033,478,Signup,200,OK,Load Test 1-21,text,true,,526,273,25,25,http://localhost:6400/api/users,449,0,1
+1741458463132,380,Signup,200,OK,Load Test 1-22,text,true,,528,273,25,25,http://localhost:6400/api/users,353,0,0
+1741458463170,438,Signup,200,OK,Load Test 1-2,text,true,,530,273,26,26,http://localhost:6400/api/users,408,0,0
+1741458463233,945,Login,200,OK,Load Test 1-16,text,true,,851,239,32,32,http://localhost:6400/api/auth,433,0,0
+1741458464178,0,Login-0,200,OK,Load Test 1-16,text,true,,303,0,32,32,null,0,0,0
+1741458463174,1011,Signup,200,OK,Load Test 1-4,text,true,,528,273,32,32,http://localhost:6400/api/users,407,0,0
+1741458463239,953,Login,200,OK,Load Test 1-9,text,true,,854,239,32,32,http://localhost:6400/api/auth,442,0,0
+1741458464192,0,Login-0,200,OK,Load Test 1-9,text,true,,302,0,32,32,null,0,0,0
+1741458463325,872,Login,200,OK,Load Test 1-10,text,true,,851,239,32,32,http://localhost:6400/api/auth,450,0,0
+1741458464197,0,Login-0,200,OK,Load Test 1-10,text,true,,303,0,32,32,null,0,0,0
+1741458463187,1013,Signup,200,OK,Load Test 1-6,text,true,,526,273,32,32,http://localhost:6400/api/users,419,0,0
+1741458463245,959,Login,200,OK,Load Test 1-5,text,true,,852,239,32,32,http://localhost:6400/api/auth,514,0,0
+1741458464204,0,Login-0,200,OK,Load Test 1-5,text,true,,302,0,32,32,null,0,0,0
+1741458463271,939,Login,200,OK,Load Test 1-17,text,true,,851,239,32,32,http://localhost:6400/api/auth,495,0,0
+1741458464210,0,Login-0,200,OK,Load Test 1-17,text,true,,303,0,32,32,null,0,0,0
+1741458463405,826,Login,200,OK,Load Test 1-7,text,true,,852,239,32,32,http://localhost:6400/api/auth,455,0,0
+1741458464231,0,Login-0,200,OK,Load Test 1-7,text,true,,302,0,32,32,null,0,0,0
+1741458463409,836,Login,200,OK,Load Test 1-18,text,true,,854,239,33,33,http://localhost:6400/api/auth,462,0,0
+1741458464245,0,Login-0,200,OK,Load Test 1-18,text,true,,302,0,33,33,null,0,0,0
+1741458463410,839,Login,200,OK,Load Test 1-1,text,true,,856,239,33,33,http://localhost:6400/api/auth,475,0,0
+1741458464249,0,Login-0,200,OK,Load Test 1-1,text,true,,302,0,33,33,null,0,0,0
+1741458463498,755,Login,200,OK,Load Test 1-20,text,true,,855,239,33,33,http://localhost:6400/api/auth,457,0,0
+1741458464253,0,Login-0,200,OK,Load Test 1-20,text,true,,303,0,33,33,null,0,0,0
+1741458463511,744,Login,200,OK,Load Test 1-21,text,true,,855,239,33,33,http://localhost:6400/api/auth,450,0,0
+1741458464255,0,Login-0,200,OK,Load Test 1-21,text,true,,301,0,33,33,null,0,0,0
+1741458463513,749,Login,200,OK,Load Test 1-22,text,true,,851,239,33,33,http://localhost:6400/api/auth,456,0,0
+1741458464262,0,Login-0,200,OK,Load Test 1-22,text,true,,303,0,33,33,null,0,0,0
+1741458463209,1059,Signup,200,OK,Load Test 1-12,text,true,,526,273,33,33,http://localhost:6400/api/users,973,0,0
+1741458463192,1124,Signup,200,OK,Load Test 1-13,text,true,,530,273,33,33,http://localhost:6400/api/users,1011,0,0
+1741458463198,1140,Signup,200,OK,Load Test 1-3,text,true,,526,273,34,34,http://localhost:6400/api/users,1009,0,0
+1741458463234,1108,Signup,200,OK,Load Test 1-23,text,true,,528,273,34,34,http://localhost:6400/api/users,983,0,0
+1741458463333,1013,Signup,200,OK,Load Test 1-24,text,true,,526,273,34,34,http://localhost:6400/api/users,889,0,1
+1741458463434,914,Signup,200,OK,Load Test 1-25,text,true,,530,273,34,34,http://localhost:6400/api/users,801,0,1
+1741458463466,887,Signup,200,OK,Load Test 1-15,text,true,,530,273,34,34,http://localhost:6400/api/users,772,0,0
+1741458463533,824,Signup,200,OK,Load Test 1-26,text,true,,526,273,34,34,http://localhost:6400/api/users,711,0,1
+1741458463608,791,Login,200,OK,Load Test 1-2,text,true,,850,239,34,34,http://localhost:6400/api/auth,713,0,0
+1741458464399,0,Login-0,200,OK,Load Test 1-2,text,true,,302,0,34,34,null,0,0,0
+1741458463343,1085,Login,200,OK,Load Test 1-11,text,true,,851,239,34,34,http://localhost:6400/api/auth,442,0,0
+1741458464428,0,Login-0,200,OK,Load Test 1-11,text,true,,303,0,34,34,null,0,0,0
+1741458463308,1141,Signup,200,OK,Load Test 1-14,text,true,,530,273,35,35,http://localhost:6400/api/users,1083,0,0
+1741458464035,416,Signup,200,OK,Load Test 1-31,text,true,,526,273,35,35,http://localhost:6400/api/users,361,0,1
+1741458463634,823,Signup,200,OK,Load Test 1-27,text,true,,532,273,35,35,http://localhost:6400/api/users,776,0,1
+1741458463934,525,Signup,200,OK,Load Test 1-30,text,true,,530,273,35,35,http://localhost:6400/api/users,479,0,0
+1741458464185,304,Login,200,OK,Load Test 1-4,text,true,,852,239,35,35,http://localhost:6400/api/auth,249,0,0
+1741458464489,0,Login-0,200,OK,Load Test 1-4,text,true,,302,0,35,35,null,0,0,0
+1741458463392,1104,Login,200,OK,Load Test 1-19,text,true,,857,239,35,35,http://localhost:6400/api/auth,466,0,0
+1741458464496,0,Login-0,200,OK,Load Test 1-19,text,true,,303,0,35,35,null,0,0,0
+1741458464200,299,Login,200,OK,Load Test 1-6,text,true,,850,239,35,35,http://localhost:6400/api/auth,239,0,0
+1741458464499,0,Login-0,200,OK,Load Test 1-6,text,true,,302,0,35,35,null,0,0,0
+1741458463321,1180,Signup,200,OK,Load Test 1-8,text,true,,530,273,35,35,http://localhost:6400/api/users,1121,0,0
+1741458463835,705,Signup,200,OK,Load Test 1-29,text,true,,528,273,36,36,http://localhost:6400/api/users,652,0,1
+1741458463735,808,Signup,200,OK,Load Test 1-28,text,true,,526,273,36,36,http://localhost:6400/api/users,759,0,1
+1741458464348,845,Login,200,OK,Load Test 1-25,text,true,,851,239,42,42,http://localhost:6400/api/auth,368,0,0
+1741458465193,0,Login-0,200,OK,Load Test 1-25,text,true,,303,0,42,42,null,0,0,0
+1741458464338,872,Login,200,OK,Load Test 1-3,text,true,,851,239,42,42,http://localhost:6400/api/auth,298,0,0
+1741458465210,0,Login-0,200,OK,Load Test 1-3,text,true,,301,0,42,42,null,0,0,0
+1741458464132,1082,Signup,200,OK,Load Test 1-32,text,true,,528,273,42,42,http://localhost:6400/api/users,414,0,1
+1741458464268,954,Login,200,OK,Load Test 1-12,text,true,,857,239,42,42,http://localhost:6400/api/auth,307,0,0
+1741458465221,1,Login-0,200,OK,Load Test 1-12,text,true,,303,0,42,42,null,0,0,0
+1741458464347,877,Login,200,OK,Load Test 1-24,text,true,,851,239,42,42,http://localhost:6400/api/auth,376,0,0
+1741458465224,0,Login-0,200,OK,Load Test 1-24,text,true,,303,0,42,42,null,0,0,0
+1741458464357,869,Login,200,OK,Load Test 1-26,text,true,,855,239,42,42,http://localhost:6400/api/auth,451,0,0
+1741458465226,0,Login-0,200,OK,Load Test 1-26,text,true,,303,0,42,42,null,0,0,0
+1741458464316,914,Login,200,OK,Load Test 1-13,text,true,,855,239,42,42,http://localhost:6400/api/auth,298,0,0
+1741458465230,0,Login-0,200,OK,Load Test 1-13,text,true,,303,0,42,42,null,0,0,0
+1741458464353,881,Login,200,OK,Load Test 1-15,text,true,,851,239,43,43,http://localhost:6400/api/auth,392,0,0
+1741458465234,0,Login-0,200,OK,Load Test 1-15,text,true,,303,0,43,43,null,0,0,0
+1741458464342,902,Login,200,OK,Load Test 1-23,text,true,,850,239,43,43,http://localhost:6400/api/auth,346,0,0
+1741458465244,0,Login-0,200,OK,Load Test 1-23,text,true,,302,0,43,43,null,0,0,0
+1741458464458,830,Login,200,OK,Load Test 1-27,text,true,,853,239,43,43,http://localhost:6400/api/auth,567,0,0
+1741458465288,0,Login-0,200,OK,Load Test 1-27,text,true,,303,0,43,43,null,0,0,0
+1741458464459,848,Login,200,OK,Load Test 1-30,text,true,,856,239,43,43,http://localhost:6400/api/auth,581,0,0
+1741458465307,0,Login-0,200,OK,Load Test 1-30,text,true,,302,0,43,43,null,0,0,0
+1741458464192,1118,Signup,200,OK,Load Test 1-9,text,true,,530,273,43,43,http://localhost:6400/api/users,1006,0,0
+1741458464204,1121,Signup,200,OK,Load Test 1-5,text,true,,526,273,43,43,http://localhost:6400/api/users,997,0,0
+1741458464178,1150,Signup,200,OK,Load Test 1-16,text,true,,530,273,43,43,http://localhost:6400/api/users,1026,0,0
+1741458464198,1132,Signup,200,OK,Load Test 1-10,text,true,,528,273,43,43,http://localhost:6400/api/users,1019,0,0
+1741458464231,1125,Signup,200,OK,Load Test 1-7,text,true,,526,273,44,44,http://localhost:6400/api/users,1011,0,0
+1741458464246,1131,Signup,200,OK,Load Test 1-18,text,true,,526,273,44,44,http://localhost:6400/api/users,1041,0,0
+1741458464249,1138,Signup,200,OK,Load Test 1-1,text,true,,526,273,44,44,http://localhost:6400/api/users,1045,0,0
+1741458464253,1138,Signup,200,OK,Load Test 1-20,text,true,,530,273,44,44,http://localhost:6400/api/users,1045,0,0
+1741458464233,1174,Signup,200,OK,Load Test 1-33,text,true,,530,273,44,44,http://localhost:6400/api/users,1069,0,1
+1741458464256,1153,Signup,200,OK,Load Test 1-21,text,true,,526,273,44,44,http://localhost:6400/api/users,1049,0,0
+1741458464335,1081,Signup,200,OK,Load Test 1-34,text,true,,528,273,44,44,http://localhost:6400/api/users,982,0,1
+1741458464399,1025,Signup,200,OK,Load Test 1-2,text,true,,526,273,44,44,http://localhost:6400/api/users,921,0,0
+1741458464428,1002,Signup,200,OK,Load Test 1-11,text,true,,532,273,44,44,http://localhost:6400/api/users,895,0,0
+1741458464501,942,Login,200,OK,Load Test 1-8,text,true,,860,239,45,45,http://localhost:6400/api/auth,840,0,0
+1741458465443,0,Login-0,200,OK,Load Test 1-8,text,true,,302,0,45,45,null,0,0,0
+1741458464540,914,Login,200,OK,Load Test 1-29,text,true,,851,239,45,45,http://localhost:6400/api/auth,803,0,0
+1741458465454,0,Login-0,200,OK,Load Test 1-29,text,true,,303,0,45,45,null,0,0,0
+1741458464435,1025,Signup,200,OK,Load Test 1-35,text,true,,528,273,45,45,http://localhost:6400/api/users,913,0,2
+1741458464489,975,Signup,200,OK,Load Test 1-4,text,true,,526,273,45,45,http://localhost:6400/api/users,878,0,0
+1741458464543,963,Login,200,OK,Load Test 1-28,text,true,,851,239,45,45,http://localhost:6400/api/auth,877,0,0
+1741458465506,0,Login-0,200,OK,Load Test 1-28,text,true,,303,0,45,45,null,0,0,0
+1741458464499,1029,Signup,200,OK,Load Test 1-6,text,true,,530,273,45,45,http://localhost:6400/api/users,941,0,0
+1741458464211,1335,Signup,200,OK,Load Test 1-17,text,true,,528,273,46,46,http://localhost:6400/api/users,1241,0,0
+1741458464496,1085,Signup,200,OK,Load Test 1-19,text,true,,526,273,46,46,http://localhost:6400/api/users,1015,0,0
+1741458465330,860,Login,200,OK,Load Test 1-10,text,true,,851,239,50,50,http://localhost:6400/api/auth,308,0,0
+1741458466190,0,Login-0,200,OK,Load Test 1-10,text,true,,303,0,50,50,null,0,0,0
+1741458465325,867,Login,200,OK,Load Test 1-5,text,true,,852,239,50,50,http://localhost:6400/api/auth,265,0,0
+1741458466192,0,Login-0,200,OK,Load Test 1-5,text,true,,302,0,50,50,null,0,0,0
+1741458465310,885,Login,200,OK,Load Test 1-9,text,true,,850,239,50,50,http://localhost:6400/api/auth,275,0,0
+1741458466195,0,Login-0,200,OK,Load Test 1-9,text,true,,302,0,50,50,null,0,0,0
+1741458465328,879,Login,200,OK,Load Test 1-16,text,true,,855,239,50,50,http://localhost:6400/api/auth,284,0,0
+1741458466206,1,Login-0,200,OK,Load Test 1-16,text,true,,303,0,50,50,null,0,0,0
+1741458464634,1593,Signup,200,OK,Load Test 1-37,text,true,,528,273,50,50,http://localhost:6400/api/users,925,0,2
+1741458464833,1399,Signup,200,OK,Load Test 1-39,text,true,,528,273,50,50,http://localhost:6400/api/users,729,0,0
+1741458465356,888,Login,200,OK,Load Test 1-7,text,true,,854,239,50,50,http://localhost:6400/api/auth,570,0,0
+1741458466244,0,Login-0,200,OK,Load Test 1-7,text,true,,302,0,50,50,null,0,0,0
+1741458464536,1712,Signup,200,OK,Load Test 1-36,text,true,,530,273,50,50,http://localhost:6400/api/users,977,0,1
+1741458465214,1036,Login,200,OK,Load Test 1-32,text,true,,851,239,50,50,http://localhost:6400/api/auth,330,0,0
+1741458466250,0,Login-0,200,OK,Load Test 1-32,text,true,,303,0,50,50,null,0,0,0
+1741458464449,1808,Login,200,OK,Load Test 1-14,text,true,,852,239,50,50,http://localhost:6400/api/auth,555,0,0
+1741458466257,0,Login-0,200,OK,Load Test 1-14,text,true,,302,0,50,50,null,0,0,0
+1741458465387,887,Login,200,OK,Load Test 1-1,text,true,,850,239,50,50,http://localhost:6400/api/auth,582,0,0
+1741458466274,0,Login-0,200,OK,Load Test 1-1,text,true,,302,0,50,50,null,0,0,0
+1741458465391,885,Login,200,OK,Load Test 1-20,text,true,,855,239,50,50,http://localhost:6400/api/auth,590,0,0
+1741458466276,0,Login-0,200,OK,Load Test 1-20,text,true,,303,0,50,50,null,0,0,0
+1741458465407,871,Login,200,OK,Load Test 1-33,text,true,,851,239,50,50,http://localhost:6400/api/auth,611,0,0
+1741458466278,0,Login-0,200,OK,Load Test 1-33,text,true,,303,0,50,50,null,0,0,0
+1741458465409,884,Login,200,OK,Load Test 1-21,text,true,,851,239,50,50,http://localhost:6400/api/auth,618,0,0
+1741458466293,0,Login-0,200,OK,Load Test 1-21,text,true,,301,0,50,50,null,0,0,0
+1741458465416,900,Login,200,OK,Load Test 1-34,text,true,,851,239,50,50,http://localhost:6400/api/auth,646,0,0
+1741458466316,0,Login-0,200,OK,Load Test 1-34,text,true,,303,0,50,50,null,0,0,0
+1741458465424,903,Login,200,OK,Load Test 1-2,text,true,,850,239,50,50,http://localhost:6400/api/auth,646,0,0
+1741458466327,0,Login-0,200,OK,Load Test 1-2,text,true,,302,0,50,50,null,0,0,0
+1741458465430,904,Login,200,OK,Load Test 1-11,text,true,,857,239,50,50,http://localhost:6400/api/auth,678,0,0
+1741458466334,0,Login-0,200,OK,Load Test 1-11,text,true,,303,0,50,50,null,0,0,0
+1741458465132,1215,Signup,200,OK,Load Test 1-42,text,true,,528,273,50,50,http://localhost:6400/api/users,1069,0,1
+1741458465033,1319,Signup,200,OK,Load Test 1-41,text,true,,528,273,50,50,http://localhost:6400/api/users,1172,0,1
+1741458464933,1424,Signup,200,OK,Load Test 1-40,text,true,,526,273,50,50,http://localhost:6400/api/users,1315,0,0
+1741458464451,1908,Login,200,OK,Load Test 1-31,text,true,,855,239,50,50,http://localhost:6400/api/auth,568,0,0
+1741458466359,0,Login-0,200,OK,Load Test 1-31,text,true,,303,0,50,50,null,0,0,0
+1741458465210,1165,Signup,200,OK,Load Test 1-3,text,true,,526,273,50,50,http://localhost:6400/api/users,1057,0,0
+1741458465222,1157,Signup,200,OK,Load Test 1-12,text,true,,532,273,50,50,http://localhost:6400/api/users,1048,0,0
+1741458465224,1156,Signup,200,OK,Load Test 1-24,text,true,,526,273,50,50,http://localhost:6400/api/users,1048,0,0
+1741458465227,1190,Signup,200,OK,Load Test 1-26,text,true,,526,273,50,50,http://localhost:6400/api/users,1054,0,0
+1741458465334,1104,Signup,200,OK,Load Test 1-44,text,true,,526,273,50,50,http://localhost:6400/api/users,1022,0,0
+1741458465230,1209,Signup,200,OK,Load Test 1-13,text,true,,526,273,50,50,http://localhost:6400/api/users,1060,0,0
+1741458465307,1147,Signup,200,OK,Load Test 1-30,text,true,,528,273,50,50,http://localhost:6400/api/users,1025,0,0
+1741458465233,1224,Signup,200,OK,Load Test 1-43,text,true,,528,273,50,50,http://localhost:6400/api/users,1079,0,1
+1741458465234,1224,Signup,200,OK,Load Test 1-15,text,true,,526,273,50,50,http://localhost:6400/api/users,1065,0,0
+1741458465244,1216,Signup,200,OK,Load Test 1-23,text,true,,532,273,50,50,http://localhost:6400/api/users,1082,0,0
+1741458464262,2200,Signup,200,OK,Load Test 1-22,text,true,,532,273,50,50,http://localhost:6400/api/users,2068,0,0
+1741458465443,1021,Signup,200,OK,Load Test 1-8,text,true,,526,275,50,50,http://localhost:6400/api/users,919,0,0
+1741458465464,1004,Login,200,OK,Load Test 1-4,text,true,,852,239,50,50,http://localhost:6400/api/auth,918,0,0
+1741458466468,0,Login-0,200,OK,Load Test 1-4,text,true,,302,0,50,50,null,0,0,0
+1741458465546,928,Login,200,OK,Load Test 1-17,text,true,,853,239,50,50,http://localhost:6400/api/auth,839,0,0
+1741458466474,0,Login-0,200,OK,Load Test 1-17,text,true,,303,0,50,50,null,0,0,0
+1741458465581,936,Login,200,OK,Load Test 1-19,text,true,,853,239,50,50,http://localhost:6400/api/auth,849,0,0
+1741458466517,0,Login-0,200,OK,Load Test 1-19,text,true,,303,0,50,50,null,0,0,0
+1741458465461,1060,Login,200,OK,Load Test 1-35,text,true,,853,239,50,50,http://localhost:6400/api/auth,972,0,0
+1741458466521,0,Login-0,200,OK,Load Test 1-35,text,true,,303,0,50,50,null,0,0,0
+1741458465528,996,Login,200,OK,Load Test 1-6,text,true,,854,239,50,50,http://localhost:6400/api/auth,907,0,0
+1741458466524,0,Login-0,200,OK,Load Test 1-6,text,true,,302,0,50,50,null,0,0,0
+1741458465506,1031,Signup,200,OK,Load Test 1-28,text,true,,530,275,50,50,http://localhost:6400/api/users,967,0,0
+1741458464734,1804,Signup,200,OK,Load Test 1-38,text,true,,530,273,50,50,http://localhost:6400/api/users,1745,0,1
+1741458466249,944,Login,200,OK,Load Test 1-36,text,true,,855,239,50,50,http://localhost:6400/api/auth,485,0,0
+1741458467193,0,Login-0,200,OK,Load Test 1-36,text,true,,303,0,50,50,null,0,0,0
+1741458466438,762,Login,200,OK,Load Test 1-44,text,true,,852,239,50,50,http://localhost:6400/api/auth,411,0,0
+1741458467200,0,Login-0,200,OK,Load Test 1-44,text,true,,302,0,50,50,null,0,0,0
+1741458466232,974,Login,200,OK,Load Test 1-39,text,true,,851,239,50,50,http://localhost:6400/api/auth,445,0,0
+1741458467206,0,Login-0,200,OK,Load Test 1-39,text,true,,303,0,50,50,null,0,0,0
+1741458466417,792,Login,200,OK,Load Test 1-26,text,true,,855,239,50,50,http://localhost:6400/api/auth,426,0,0
+1741458467209,0,Login-0,200,OK,Load Test 1-26,text,true,,303,0,50,50,null,0,0,0
+1741458466380,830,Login,200,OK,Load Test 1-24,text,true,,855,239,50,50,http://localhost:6400/api/auth,438,0,0
+1741458467210,0,Login-0,200,OK,Load Test 1-24,text,true,,303,0,50,50,null,0,0,0
+1741458466379,832,Login,200,OK,Load Test 1-12,text,true,,855,239,50,50,http://localhost:6400/api/auth,384,0,0
+1741458467211,0,Login-0,200,OK,Load Test 1-12,text,true,,303,0,50,50,null,0,0,0
+1741458466358,855,Login,200,OK,Load Test 1-40,text,true,,851,239,50,50,http://localhost:6400/api/auth,407,0,0
+1741458467213,0,Login-0,200,OK,Load Test 1-40,text,true,,303,0,50,50,null,0,0,0
+1741458465534,1680,Signup,200,OK,Load Test 1-46,text,true,,528,275,50,50,http://localhost:6400/api/users,957,0,0
+1741458466352,867,Login,200,OK,Load Test 1-41,text,true,,851,239,50,50,http://localhost:6400/api/auth,408,0,0
+1741458467219,0,Login-0,200,OK,Load Test 1-41,text,true,,303,0,50,50,null,0,0,0
+1741458466227,994,Login,200,OK,Load Test 1-37,text,true,,851,239,50,50,http://localhost:6400/api/auth,448,0,0
+1741458467221,0,Login-0,200,OK,Load Test 1-37,text,true,,303,0,50,50,null,0,0,0
+1741458465454,1847,Signup,200,OK,Load Test 1-29,text,true,,528,275,50,50,http://localhost:6400/api/users,1749,0,0
+1741458465435,1869,Signup,200,OK,Load Test 1-45,text,true,,528,273,50,50,http://localhost:6400/api/users,1769,0,1
+1741458465632,1677,Signup,200,OK,Load Test 1-47,text,true,,526,275,50,50,http://localhost:6400/api/users,1576,0,1
+1741458465732,1580,Signup,200,OK,Load Test 1-48,text,true,,526,275,50,50,http://localhost:6400/api/users,1486,0,1
+1741458465832,1492,Signup,200,OK,Load Test 1-49,text,true,,530,275,50,50,http://localhost:6400/api/users,1411,0,1
+1741458465932,1395,Signup,200,OK,Load Test 1-50,text,true,,528,275,50,50,http://localhost:6400/api/users,1313,0,1
+1741458466190,1144,Signup,200,OK,Load Test 1-10,text,true,,530,275,50,50,http://localhost:6400/api/users,1063,0,0
+1741458466192,1159,Signup,200,OK,Load Test 1-5,text,true,,526,275,50,50,http://localhost:6400/api/users,1072,0,0
+1741458466245,1112,Signup,200,OK,Load Test 1-7,text,true,,526,275,50,50,http://localhost:6400/api/users,1026,0,0
+1741458466195,1175,Signup,200,OK,Load Test 1-9,text,true,,534,275,50,50,http://localhost:6400/api/users,1087,0,0
+1741458466207,1171,Signup,200,OK,Load Test 1-16,text,true,,528,275,50,50,http://localhost:6400/api/users,1080,0,0
+1741458466278,1127,Signup,200,OK,Load Test 1-33,text,true,,530,275,50,50,http://localhost:6400/api/users,1013,0,0
+1741458466276,1131,Signup,200,OK,Load Test 1-20,text,true,,526,275,50,50,http://localhost:6400/api/users,1018,0,0
+1741458466250,1163,Signup,200,OK,Load Test 1-32,text,true,,526,275,50,50,http://localhost:6400/api/users,1047,0,0
+1741458466294,1120,Signup,200,OK,Load Test 1-21,text,true,,528,275,50,50,http://localhost:6400/api/users,1006,0,0
+1741458466274,1147,Signup,200,OK,Load Test 1-1,text,true,,526,275,50,50,http://localhost:6400/api/users,1033,0,0
+1741458466335,1089,Signup,200,OK,Load Test 1-11,text,true,,526,275,50,50,http://localhost:6400/api/users,973,0,0
+1741458465378,2051,Login,200,OK,Load Test 1-18,text,true,,852,239,50,50,http://localhost:6400/api/auth,566,0,0
+1741458467430,0,Login-0,200,OK,Load Test 1-18,text,true,,302,0,50,50,null,0,0,0
+1741458466327,1104,Signup,200,OK,Load Test 1-2,text,true,,530,275,50,50,http://localhost:6400/api/users,990,0,0
+1741458465193,2245,Signup,200,OK,Load Test 1-25,text,true,,534,273,50,50,http://localhost:6400/api/users,1062,0,0
+1741458465289,2164,Signup,200,OK,Load Test 1-27,text,true,,530,273,50,50,http://localhost:6400/api/users,2032,0,0
+1741458466359,1097,Signup,200,OK,Load Test 1-31,text,true,,530,275,50,50,http://localhost:6400/api/users,964,0,0
+1741458466464,996,Login,200,OK,Load Test 1-8,text,true,,851,240,50,50,http://localhost:6400/api/auth,874,0,0
+1741458467461,0,Login-0,200,OK,Load Test 1-8,text,true,,303,0,50,50,null,0,0,0
+1741458466458,1005,Login,200,OK,Load Test 1-15,text,true,,853,239,50,50,http://localhost:6400/api/auth,884,0,0
+1741458467464,0,Login-0,200,OK,Load Test 1-15,text,true,,303,0,50,50,null,0,0,0
+1741458466440,1053,Login,200,OK,Load Test 1-13,text,true,,851,239,50,50,http://localhost:6400/api/auth,904,0,0
+1741458467494,0,Login-0,200,OK,Load Test 1-13,text,true,,303,0,50,50,null,0,0,0
+1741458466517,999,Signup,200,OK,Load Test 1-19,text,true,,526,275,50,50,http://localhost:6400/api/users,921,0,0
+1741458466457,1064,Login,200,OK,Load Test 1-43,text,true,,855,239,50,50,http://localhost:6400/api/auth,987,0,0
+1741458467522,0,Login-0,200,OK,Load Test 1-43,text,true,,303,0,50,50,null,0,0,0
+1741458466347,1840,Login,200,OK,Load Test 1-42,text,true,,851,239,50,50,http://localhost:6400/api/auth,1263,0,0
+1741458468188,0,Login-0,200,OK,Load Test 1-42,text,true,,303,0,50,50,null,0,0,0
+1741458466462,1730,Login,200,OK,Load Test 1-22,text,true,,857,239,50,50,http://localhost:6400/api/auth,1063,0,0
+1741458468193,0,Login-0,200,OK,Load Test 1-22,text,true,,303,0,50,50,null,0,0,0
+1741458466474,1724,Signup,200,OK,Load Test 1-17,text,true,,528,275,50,50,http://localhost:6400/api/users,1046,0,0
+1741458466537,1664,Login,200,OK,Load Test 1-28,text,true,,856,240,50,50,http://localhost:6400/api/auth,991,0,0
+1741458468202,0,Login-0,200,OK,Load Test 1-28,text,true,,304,0,50,50,null,0,0,0
+1741458467304,899,Login,200,OK,Load Test 1-45,text,true,,852,239,50,50,http://localhost:6400/api/auth,398,0,0
+1741458468204,0,Login-0,200,OK,Load Test 1-45,text,true,,302,0,50,50,null,0,0,0
+1741458466538,1670,Login,200,OK,Load Test 1-38,text,true,,853,239,50,50,http://localhost:6400/api/auth,993,0,0
+1741458468209,0,Login-0,200,OK,Load Test 1-38,text,true,,303,0,50,50,null,0,0,0
+1741458467309,911,Login,200,OK,Load Test 1-47,text,true,,854,240,50,50,http://localhost:6400/api/auth,435,0,0
+1741458468221,0,Login-0,200,OK,Load Test 1-47,text,true,,304,0,50,50,null,0,0,0
+1741458467214,1007,Login,200,OK,Load Test 1-46,text,true,,855,240,50,50,http://localhost:6400/api/auth,364,0,0
+1741458468222,0,Login-0,200,OK,Load Test 1-46,text,true,,303,0,50,50,null,0,0,0
+1741458466460,1763,Login,200,OK,Load Test 1-23,text,true,,852,239,50,50,http://localhost:6400/api/auth,986,0,0
+1741458468224,0,Login-0,200,OK,Load Test 1-23,text,true,,302,0,50,50,null,0,0,0
+1741458466455,1770,Login,200,OK,Load Test 1-30,text,true,,854,239,50,50,http://localhost:6400/api/auth,994,0,0
+1741458468226,0,Login-0,200,OK,Load Test 1-30,text,true,,302,0,50,50,null,0,0,0
+1741458467301,925,Login,200,OK,Load Test 1-29,text,true,,852,240,50,50,http://localhost:6400/api/auth,389,0,0
+1741458468227,0,Login-0,200,OK,Load Test 1-29,text,true,,304,0,50,50,null,0,0,0
+1741458466375,1852,Login,200,OK,Load Test 1-3,text,true,,853,239,50,50,http://localhost:6400/api/auth,1219,0,0
+1741458468228,0,Login-0,200,OK,Load Test 1-3,text,true,,301,0,50,50,null,0,0,0
+1741458467312,918,Login,200,OK,Load Test 1-48,text,true,,854,240,50,50,http://localhost:6400/api/auth,451,0,0
+1741458468231,0,Login-0,200,OK,Load Test 1-48,text,true,,304,0,50,50,null,0,0,0
+1741458467325,936,Login,200,OK,Load Test 1-49,text,true,,854,240,50,50,http://localhost:6400/api/auth,450,0,0
+1741458468261,0,Login-0,200,OK,Load Test 1-49,text,true,,304,0,50,50,null,0,0,0
+1741458467328,943,Login,200,OK,Load Test 1-50,text,true,,856,240,50,50,http://localhost:6400/api/auth,465,0,0
+1741458468271,0,Login-0,200,OK,Load Test 1-50,text,true,,304,0,50,50,null,0,0,0
+1741458467352,940,Login,200,OK,Load Test 1-5,text,true,,853,240,50,50,http://localhost:6400/api/auth,493,0,0
+1741458468292,0,Login-0,200,OK,Load Test 1-5,text,true,,303,0,50,50,null,0,0,0
+1741458467336,962,Login,200,OK,Load Test 1-10,text,true,,854,240,50,50,http://localhost:6400/api/auth,495,0,0
+1741458468298,0,Login-0,200,OK,Load Test 1-10,text,true,,304,0,50,50,null,0,0,0
+1741458467358,943,Login,200,OK,Load Test 1-7,text,true,,855,240,50,50,http://localhost:6400/api/auth,506,0,0
+1741458468301,0,Login-0,200,OK,Load Test 1-7,text,true,,303,0,50,50,null,0,0,0
+1741458467372,932,Login,200,OK,Load Test 1-9,text,true,,855,240,50,50,http://localhost:6400/api/auth,509,0,0
+1741458468304,0,Login-0,200,OK,Load Test 1-9,text,true,,303,0,50,50,null,0,0,0
+1741458466521,1790,Signup,200,OK,Load Test 1-35,text,true,,532,275,50,50,http://localhost:6400/api/users,1708,0,0
+1741458467193,1136,Signup,200,OK,Load Test 1-36,text,true,,528,275,50,50,http://localhost:6400/api/users,1052,0,0
+1741458467200,1130,Signup,200,OK,Load Test 1-44,text,true,,530,275,50,50,http://localhost:6400/api/users,1048,0,0
+1741458467206,1139,Signup,200,OK,Load Test 1-39,text,true,,530,275,50,50,http://localhost:6400/api/users,1044,0,0
+1741458467219,1144,Signup,200,OK,Load Test 1-41,text,true,,530,275,50,50,http://localhost:6400/api/users,1055,0,0
+1741458467210,1166,Signup,200,OK,Load Test 1-24,text,true,,530,275,50,50,http://localhost:6400/api/users,1076,0,0
+1741458467213,1166,Signup,200,OK,Load Test 1-40,text,true,,536,275,50,50,http://localhost:6400/api/users,1077,0,0
+1741458467221,1164,Signup,200,OK,Load Test 1-37,text,true,,526,275,50,50,http://localhost:6400/api/users,1074,0,0
+1741458467209,1180,Signup,200,OK,Load Test 1-26,text,true,,528,275,50,50,http://localhost:6400/api/users,1090,0,0
+1741458467211,1187,Signup,200,OK,Load Test 1-12,text,true,,528,275,50,50,http://localhost:6400/api/users,1091,0,0
+1741458466316,2086,Signup,200,OK,Load Test 1-34,text,true,,532,275,50,50,http://localhost:6400/api/users,1003,0,0
+1741458466257,2149,Signup,200,OK,Load Test 1-14,text,true,,530,275,50,50,http://localhost:6400/api/users,1058,0,0
+1741458467415,997,Login,200,OK,Load Test 1-21,text,true,,854,240,50,50,http://localhost:6400/api/auth,920,0,0
+1741458468412,0,Login-0,200,OK,Load Test 1-21,text,true,,302,0,50,50,null,0,0,0
+1741458467517,913,Login,200,OK,Load Test 1-19,text,true,,858,240,50,50,http://localhost:6400/api/auth,823,0,0
+1741458468430,0,Login-0,200,OK,Load Test 1-19,text,true,,304,0,50,50,null,0,0,0
+1741458467424,1007,Login,200,OK,Load Test 1-1,text,true,,853,240,50,50,http://localhost:6400/api/auth,920,0,0
+1741458468431,0,Login-0,200,OK,Load Test 1-1,text,true,,303,0,50,50,null,0,0,0
+1741458467458,1024,Login,200,OK,Load Test 1-31,text,true,,852,240,50,50,http://localhost:6400/api/auth,957,0,0
+1741458468482,0,Login-0,200,OK,Load Test 1-31,text,true,,304,0,50,50,null,0,0,0
+1741458467433,1050,Login,200,OK,Load Test 1-2,text,true,,851,240,50,50,http://localhost:6400/api/auth,984,0,0
+1741458468483,0,Login-0,200,OK,Load Test 1-2,text,true,,303,0,50,50,null,0,0,0
+1741458467439,1045,Login,200,OK,Load Test 1-25,text,true,,853,239,50,50,http://localhost:6400/api/auth,982,0,0
+1741458468484,0,Login-0,200,OK,Load Test 1-25,text,true,,303,0,50,50,null,0,0,0
+1741458467414,1073,Login,200,OK,Load Test 1-32,text,true,,854,240,50,50,http://localhost:6400/api/auth,1009,0,0
+1741458468487,0,Login-0,200,OK,Load Test 1-32,text,true,,304,0,50,50,null,0,0,0
+1741458467464,1037,Signup,200,OK,Load Test 1-15,text,true,,530,275,50,50,http://localhost:6400/api/users,965,0,0
+1741458466468,2052,Signup,200,OK,Load Test 1-4,text,true,,526,275,50,50,http://localhost:6400/api/users,1988,0,0
+1741458467426,1312,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-11,text,false,Test failed: code expected to contain /200/,2267,0,50,50,http://localhost:6400/api/auth,1121,0,0
+1741458468738,0,Login-0,200,OK,Load Test 1-11,text,true,,304,0,50,50,null,0,0,0
+1741458468365,373,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-41,text,false,Test failed: code expected to contain /200/,3081,0,50,50,http://localhost:6400/api/auth,0,0,0
+1741458468738,0,Login-0,200,OK,Load Test 1-41,text,true,,304,0,50,50,null,0,0,0
+1741458467454,1284,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-27,text,false,Test failed: code expected to contain /200/,2266,0,50,50,http://localhost:6400/api/auth,1042,0,0
+1741458468738,0,Login-0,200,OK,Load Test 1-27,text,true,,303,0,50,50,null,0,0,0
+1741458468261,477,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-49,text,false,Test failed: code expected to contain /200/,2777,0,49,49,http://localhost:6400/api/users,0,0,0
+1741458467379,1359,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-16,text,false,Test failed: code expected to contain /200/,2267,0,49,49,http://localhost:6400/api/auth,1114,0,0
+1741458468738,0,Login-0,200,OK,Load Test 1-16,text,true,,304,0,49,49,null,0,0,0
+1741458467522,1216,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-43,text,false,Test failed: code expected to contain /200/,2777,0,45,45,http://localhost:6400/api/users,0,0,0
+1741458468331,408,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-44,text,false,Test failed: code expected to contain /200/,2266,0,44,44,http://localhost:6400/api/auth,400,0,0
+1741458468739,0,Login-0,200,OK,Load Test 1-44,text,true,,303,0,44,44,null,0,0,0
+1741458468204,534,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-45,text,false,Test failed: code expected to contain /200/,2777,0,44,44,http://localhost:6400/api/users,0,0,0
+1741458468347,392,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-39,text,false,Test failed: code expected to contain /200/,3081,0,42,42,http://localhost:6400/api/auth,0,0,0
+1741458468739,0,Login-0,200,OK,Load Test 1-39,text,true,,304,0,42,42,null,0,0,0
+1741458468228,511,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-3,text,false,Test failed: code expected to contain /200/,2777,0,41,41,http://localhost:6400/api/users,0,0,0
+1741458468485,254,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-25,text,false,Test failed: code expected to contain /200/,2777,0,40,40,http://localhost:6400/api/users,0,0,0
+1741458468412,327,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-21,text,false,Test failed: code expected to contain /200/,2777,0,39,39,http://localhost:6400/api/users,0,0,0
+1741458468483,257,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-2,text,false,Test failed: code expected to contain /200/,2777,0,38,38,http://localhost:6400/api/users,0,0,0
+1741458468501,240,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-15,text,false,Test failed: code expected to contain /200/,3081,0,37,37,http://localhost:6400/api/auth,0,0,0
+1741458468741,0,Login-0,200,OK,Load Test 1-15,text,true,,304,0,37,37,null,0,0,0
+1741458468408,333,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-14,text,false,Test failed: code expected to contain /200/,3080,0,36,36,http://localhost:6400/api/auth,0,0,0
+1741458468741,0,Login-0,200,OK,Load Test 1-14,text,true,,303,0,36,36,null,0,0,0
+1741458468222,518,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-46,text,false,Test failed: code expected to contain /200/,2777,0,36,36,http://localhost:6400/api/users,0,0,0
+1741458467430,1310,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-18,text,false,Test failed: code expected to contain /200/,2777,0,34,34,http://localhost:6400/api/users,0,0,0
+1741458468199,543,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-17,text,false,Test failed: code expected to contain /200/,2267,0,34,34,http://localhost:6400/api/auth,375,0,0
+1741458468742,0,Login-0,200,OK,Load Test 1-17,text,true,,304,0,34,34,null,0,0,0
+1741458467461,1280,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-8,text,false,Test failed: code expected to contain /200/,2777,0,32,32,http://localhost:6400/api/users,0,0,0
+1741458467494,1247,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-13,text,false,Test failed: code expected to contain /200/,2777,0,32,32,http://localhost:6400/api/users,0,0,0
+1741458468386,356,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-37,text,false,Test failed: code expected to contain /200/,3081,0,32,32,http://localhost:6400/api/auth,0,0,0
+1741458468742,0,Login-0,200,OK,Load Test 1-37,text,true,,304,0,32,32,null,0,0,0
+1741458468430,311,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-19,text,false,Test failed: code expected to contain /200/,2777,0,29,29,http://localhost:6400/api/users,0,0,0
+1741458468390,352,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-26,text,false,Test failed: code expected to contain /200/,3081,0,28,28,http://localhost:6400/api/auth,0,0,0
+1741458468742,0,Login-0,200,OK,Load Test 1-26,text,true,,304,0,28,28,null,0,0,0
+1741458468381,361,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-40,text,false,Test failed: code expected to contain /200/,3081,0,28,28,http://localhost:6400/api/auth,0,0,0
+1741458468742,0,Login-0,200,OK,Load Test 1-40,text,true,,304,0,28,28,null,0,0,0
+1741458468271,470,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-50,text,false,Test failed: code expected to contain /200/,2777,0,28,28,http://localhost:6400/api/users,0,0,0
+1741458468301,440,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-7,text,false,Test failed: code expected to contain /200/,2777,0,28,28,http://localhost:6400/api/users,0,0,0
+1741458467406,1337,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-33,text,false,Test failed: code expected to contain /200/,2267,0,26,26,http://localhost:6400/api/auth,1092,0,0
+1741458468743,0,Login-0,200,OK,Load Test 1-33,text,true,,304,0,25,25,null,0,0,0
+1741458468188,553,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-42,text,false,Test failed: code expected to contain /200/,2777,0,25,25,http://localhost:6400/api/users,0,0,0
+1741458468522,221,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-4,text,false,Test failed: code expected to contain /200/,3080,0,24,24,http://localhost:6400/api/auth,0,0,0
+1741458468743,0,Login-0,200,OK,Load Test 1-4,text,true,,303,0,23,23,null,0,0,0
+1741458468224,518,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-23,text,false,Test failed: code expected to contain /200/,2777,0,21,21,http://localhost:6400/api/users,0,0,0
+1741458468226,516,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-30,text,false,Test failed: code expected to contain /200/,2777,0,21,21,http://localhost:6400/api/users,0,0,0
+1741458468482,260,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-31,text,false,Test failed: code expected to contain /200/,2777,0,19,19,http://localhost:6400/api/users,0,0,0
+1741458468431,311,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-1,text,false,Test failed: code expected to contain /200/,2777,0,19,19,http://localhost:6400/api/users,0,0,0
+1741458468403,340,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-34,text,false,Test failed: code expected to contain /200/,3081,0,19,19,http://localhost:6400/api/auth,0,0,0
+1741458468743,0,Login-0,200,OK,Load Test 1-34,text,true,,304,0,18,18,null,0,0,0
+1741458468209,533,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-38,text,false,Test failed: code expected to contain /200/,2777,0,16,16,http://localhost:6400/api/users,0,0,0
+1741458468202,541,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-28,text,false,Test failed: code expected to contain /200/,2777,0,15,15,http://localhost:6400/api/users,0,0,0
+1741458468330,414,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-36,text,false,Test failed: code expected to contain /200/,2267,0,15,15,http://localhost:6400/api/auth,356,0,0
+1741458468744,0,Login-0,200,OK,Load Test 1-36,text,true,,304,0,15,15,null,0,0,0
+1741458468378,366,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-24,text,false,Test failed: code expected to contain /200/,3081,0,14,14,http://localhost:6400/api/auth,0,0,0
+1741458468744,0,Login-0,200,OK,Load Test 1-24,text,true,,304,0,14,14,null,0,0,0
+1741458466524,2218,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-6,text,false,Test failed: code expected to contain /200/,1963,0,12,12,http://localhost:6400/api/users,1939,0,0
+1741458468298,445,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-10,text,false,Test failed: code expected to contain /200/,2777,0,12,12,http://localhost:6400/api/users,0,0,0
+1741458468227,516,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-29,text,false,Test failed: code expected to contain /200/,2777,0,12,12,http://localhost:6400/api/users,0,0,0
+1741458468487,256,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-32,text,false,Test failed: code expected to contain /200/,2777,0,12,12,http://localhost:6400/api/users,0,0,0
+1741458468305,439,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-9,text,false,Test failed: code expected to contain /200/,2777,0,8,8,http://localhost:6400/api/users,0,0,0
+1741458467408,1337,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-20,text,false,Test failed: code expected to contain /200/,2267,0,8,8,http://localhost:6400/api/auth,1122,0,0
+1741458468745,0,Login-0,200,OK,Load Test 1-20,text,true,,304,0,8,8,null,0,0,0
+1741458468193,551,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-22,text,false,Test failed: code expected to contain /200/,2777,0,8,8,http://localhost:6400/api/users,0,0,0
+1741458468231,513,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-48,text,false,Test failed: code expected to contain /200/,2777,0,8,8,http://localhost:6400/api/users,0,0,0
+1741458468221,523,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-47,text,false,Test failed: code expected to contain /200/,2777,0,4,4,http://localhost:6400/api/users,0,0,0
+1741458468312,433,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-35,text,false,Test failed: code expected to contain /200/,2267,0,4,4,http://localhost:6400/api/auth,355,0,0
+1741458468745,0,Login-0,200,OK,Load Test 1-35,text,true,,304,0,4,4,null,0,0,0
+1741458468292,452,Signup,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-5,text,false,Test failed: code expected to contain /200/,2777,0,2,2,http://localhost:6400/api/users,0,0,0
+1741458468399,346,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Load Test 1-12,text,false,Test failed: code expected to contain /200/,3081,0,2,2,http://localhost:6400/api/auth,0,0,0
+1741458468745,0,Login-0,200,OK,Load Test 1-12,text,true,,304,0,2,2,null,0,0,0

@@ -47,6 +47,7 @@ async function getCurrentUser(req, res){
     
 }
 
+
 //Create user
 async function createUser(req, res){
     const {body: {email, username, password}} = req;
@@ -68,6 +69,9 @@ async function createUser(req, res){
         return res.status(500).send({msg:"Failed to create user"});
     }
 }
+
+
+
 
 
 async function changeStartPage(req, res) {

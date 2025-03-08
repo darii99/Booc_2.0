@@ -14,13 +14,13 @@ async function authenicate(req, res){
         return res.status(401).send({msg: "Bad credentials"});
     }
     else{
-        console.log("valid credentials");
+        console.log("Valid credentials");
         //Updates session
         const recastUser = user;
         req.session.user = {...recastUser, password:password};
         //res.cookie("user", recastUser, );
         const {startingPage: startingPage} = recastUser;
-        return res.status(200).send({msg: "Valid crendentials", startingPage:startingPage});
+        return res.status(200).send({msg: "Valid credentials", startingPage:startingPage});
     }
 }
 
