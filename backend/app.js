@@ -3,11 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 //import session from "express-session";
-var session = require("express-session")
+//var session = require("express-session")    //session
 var logger = require('morgan');
 var cors = require("cors");
 const dotenv = require("dotenv").config();
-var MongoDBStore = require('connect-mongodb-session')(session);
+//var MongoDBStore = require('connect-mongodb-session')(session);   //session
+
+const jwt = require('jwt-express');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -50,19 +52,26 @@ app.use(function(req, res, next){
 })
 
 
+/** ######### SESSION ####### 
 //Creates mongoDB connection for session storage, https://www.npmjs.com/package/connect-mongodb-session
 var store = new MongoDBStore({
   uri: `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@booc.oduvk.mongodb.net/Booc?retryWrites=true&w=majority&appName=Booc `,
   databaseName: "Booc",
   collection: 'mySessions',
 });
+*/
 
+// ###### SESSION ##########
+/** 
 //Catches errors with storing sessions
 store.on('error', function(error) {
   console.log(error);
 });
+*/
 
 
+// ###### SESSION ##########
+/** 
 //Implements sessions
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -93,6 +102,9 @@ io.on('connection', (socket) => {
   }
   })
 });
+*/
+
+
 
 
 // view engine setup
@@ -106,10 +118,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(responseHandler);
+app.use(jwt.init(process.env.SESSION_SECRET, {cookies: false}));    //initializes jwt-express
+
+
+app.use(responseHandler);   // winston logger
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api", apiRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

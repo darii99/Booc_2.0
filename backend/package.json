@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "argon2": "^0.41.1",
+    "axios": "^1.8.2",
     "connect-mongodb-session": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
@@ -20,6 +21,7 @@
     "http-proxy-middleware": "^3.0.3",
     "jade": "~1.11.0",
     "jsonwebtoken": "^9.0.2",
+    "jwt-express": "^1.1.0",
     "mongodb": "^6.9.0",
     "mongoose": "^8.6.4",
     "morgan": "~1.9.1",

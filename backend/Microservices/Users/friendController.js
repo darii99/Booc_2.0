@@ -2,7 +2,7 @@
 const { //getCurrentUser:getCurrentUserModel,
         addFriend:addFriendModel,
         deleteFriend:deleteFriendModel } = require("./usersModel");
-
+const jwt = require('jwt-express');
 
 /* 
 async function getCurrentUser(req, res) 
@@ -22,7 +22,7 @@ async function getCurrentUser(req, res)
 async function addFriend(req, res)
 {
     const { friendsUsername, friendIdentifier } = req.body;      // the username and identifier inputted by the user
-    const currentUser = req.session.user;                        // retrieve the currently logged in user
+    const currentUser = req.jwt.user;                        // retrieve the currently logged in user
 
     try {
         //pass the data to the addFriend() function in usersModel
@@ -58,7 +58,7 @@ async function addFriend(req, res)
 async function deleteFriend(req, res)
 {
     const { currentUserID, friendsUsername, friendIdentifier } = req.body;
-    const currentUser = req.session.user;       
+    const currentUser = req.jwt.user;       
 
     try {
         const result = await deleteFriendModel(currentUserID, friendsUsername, friendIdentifier);
