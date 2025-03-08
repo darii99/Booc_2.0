@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers: 
+      - name: backend
+        image: $CONTAINER_REGISTRY_LOGIN_SERVER/backend:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PORT
+          value: "6400"
+        - name: DB_USERNAME
+          value: $DB_USERNAME
+        - name: DB_PASSWORD
+          value: $DB_PASSWORD
+        - name: SESSION_SECRET
+          value: $SESSION_SECRET
+        resources:
+          requests:
+            cpu: 128m
+            memory: 128Mi
+          limits:
+            cpu: 256m
+            memory: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 6400
