@@ -7,7 +7,7 @@ on:
       - external_routes
       - tokens
     paths:
-      - 'backend/Microservices/Gateway/**' # Trigger workflow when code in this path changes
+      - 'backend/**' # Trigger workflow when code in this path changes
   
   pull_request:
     branches:
@@ -28,12 +28,12 @@ env:
 
 
 jobs:
-  gateway:
+  app:
     runs-on: ubuntu-latest
 
     defaults:
       run:
-        working-directory: 'backend/Microservices/Gateway' 
+        working-directory: 'backend' 
     
  
     steps:
@@ -50,7 +50,7 @@ jobs:
 
 
       - name: Install Dependencies
-        working-directory: backend/Microservices/Gateway
+        working-directory: backend
         run: npm ci
 
       #- name: Run Tests
@@ -58,7 +58,7 @@ jobs:
 
 
   docker-build-and-run:
-    needs: gateway
+    needs: app
     runs-on: ubuntu-latest
 
     steps:
@@ -66,13 +66,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker Image
-        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/gateway:latest -f backend/Microservices/Gateway/Dockerfile backend
+        run: docker build -t ${CONTAINER_REGISTRY_LOGIN_SERVER}/app:latest -f backend/Dockerfile .
         
       - name: Push Docker Image to Azure Container Registry
-        working-directory: 'backend/Microservices/Gateway'
+        working-directory: 'backend'
         run: |
             echo ${CONTAINER_REGISTRY_PASSWORD} | docker login ${CONTAINER_REGISTRY_LOGIN_SERVER} -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
-            docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/gateway:latest
+            docker push ${CONTAINER_REGISTRY_LOGIN_SERVER}/app:latest
 
 
       - name: Install Kubectl
@@ -84,7 +84,7 @@ jobs:
 
       - name: Deploy User Manifest to the AKS cluster (Azure Kubernetes Service)
         run: | 
-            envsubst < backend/Microservices/Gateway/Kubernetes/gatewayDeployment.yml > gatewayDeployment.processed.yml
-            kubectl apply -f gatewayDeployment.processed.yml
+            envsubst < backend/Kubernetes/appDeployment.yml > appDeployment.processed.yml
+            kubectl apply -f appDeployment.processed.yml
 
 

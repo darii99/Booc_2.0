@@ -14,6 +14,8 @@ export async function login(email, password){
           throw new Error("Response not found");
         }
 
+        response.data?.token && localStorage.setItem('token', response.data.token);
+
         //If success then redirect to next page
         if(response.data.startingPage == 0){
           redirect_target = "/Profile";
