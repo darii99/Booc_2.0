@@ -3,12 +3,12 @@ FROM node:19.9.0-alpine
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-COPY app.js ./
+
 
 # install dependencies
 RUN npm ci --omit=dev
 #RUN npm install
-
+COPY app.js ./
 COPY ./bin ./bin
 COPY ./public ./public
 COPY ./routes ./routes
