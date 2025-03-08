@@ -32,6 +32,12 @@ const corsconfig = {
 app.options("*", cors(corsconfig))  // the star allows all IP to connect, but not if you use credentials: true in cors
 app.use(cors(corsconfig));
 */
+const corsconfig = {
+  origin: "http://9.223.79.178:5000",
+  credentials: true,
+}
+
+app.use(cors(corsconfig));
 
 
 const server = http.createServer(app);

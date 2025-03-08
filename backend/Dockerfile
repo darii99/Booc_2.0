@@ -8,13 +8,13 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 #RUN npm install
 
-#COPY . .
-COPY app.js ./
-COPY ./bin ./bin
-COPY ./public ./public
-COPY ./routes ./routes
-COPY ./services ./services
-COPY ./views ./views
+COPY . .
+#COPY app.js ./
+#COPY ./bin ./bin
+#COPY ./public ./public
+#COPY ./routes ./routes
+#COPY ./services ./services
+#COPY ./views ./views
 
 EXPOSE 6400
 
