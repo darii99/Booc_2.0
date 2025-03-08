@@ -1,6 +1,6 @@
 FROM node:19.9.0-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY app.js ./
@@ -10,7 +10,7 @@ RUN npm ci --omit=dev
 #RUN npm install
 
 COPY ./bin ./
-COPY ,/public ./public
+COPY ./public ./public
 COPY ./routes ./routes
 COPY ./services ./services
 COPY ./views ./views
