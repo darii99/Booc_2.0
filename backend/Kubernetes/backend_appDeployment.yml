@@ -19,12 +19,6 @@ spec:
         env:
         - name: PORT
           value: "6400"
-        - name: DB_USERNAME
-          value: $DB_USERNAME
-        - name: DB_PASSWORD
-          value: $DB_PASSWORD
-        - name: SESSION_SECRET
-          value: $SESSION_SECRET
         resources:
           requests:
             cpu: 128m
