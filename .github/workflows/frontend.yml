@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - external_routes
+      - tokens
     paths:
       - 'frontend/**' # Trigger workflow when code in this path changes
   

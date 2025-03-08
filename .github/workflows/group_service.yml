@@ -5,6 +5,7 @@ on:
     branches:
       - main  # Trigger workflow on push to main branch
       - external_routes
+      - tokens
     paths:
       - 'backend/Microservices/Groups/**'  # Trigger workflow when code in this path changes
 
