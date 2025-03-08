@@ -1,6 +1,6 @@
 FROM node:19.9.0-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -8,12 +8,13 @@ COPY package*.json ./
 # install dependencies
 RUN npm ci --omit=dev
 #RUN npm install
-COPY app.js ./
-COPY ./bin ./bin
-COPY ./public ./public
-COPY ./routes ./routes
-COPY ./services ./services
-COPY ./views ./views
+
+COPY backend/app.js ./
+COPY backend/bin ./bin
+COPY backend/public ./public
+COPY backend/routes ./routes
+COPY backend/services ./services
+COPY backend/views ./views
 
 
 EXPOSE 4000
