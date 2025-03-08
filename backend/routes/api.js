@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-const {authenicate, authStatus, removeAuth} = require(".././Microservices/Users/authController");
+const {authenicate, authStatus, removeAuth} = require("../Microservices/Users/authController");
 const {getCurrentUser,
     createUser, 
     deleteUser, 
     changePassword,
-    changeStartPage} = require('.././Microservices/Users/usersController');
+    changeStartPage} = require('../Microservices/Users/usersController');
 const {getGroup,
     getAllGroups,
     createGroup,
     updateGroup,
     deleteGroup,
-    leaveGroup} = require(".././Microservices/Groups/groupController");
-const {addFriend, deleteFriend} = require('.././Microservices/Users/friendController');
+    leaveGroup} = require("../Microservices/Groups/groupController");
+const {addFriend, deleteFriend} = require('../Microservices/Users/friendController');
 const { createEvent, deleteEvent, getEvents } = require('../Microservices/Events/eventController');
 
 
