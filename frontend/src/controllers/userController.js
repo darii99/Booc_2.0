@@ -1,25 +1,47 @@
 import {redirect} from "react-router-dom";
 import {api} from "./axiosTemplate.js"
+import { useNavigate } from 'react-router-dom';
 
 //Creates a new account and logs you in
 export async function signUp(email, username, password){
+
   var redirect_target = "";
-  const response = await api.post('/api/users', {
-      email:email,
+
+  try {
+    // Log the request data before sending the request
+    console.log("Sending request to create user with data:", {
+      email: email,
       username: username,
       password: password,
-    })
-    .then(function(response){
-      //Test for failed creation of account
-      if(response.data?.msg !== "Created user"){
-        throw Error(response.msg);
-      }
-      redirect_target = "/Profile";
-    })
-    .catch(function(error){
-      console.log(error);
-      redirect_target = "invalid";
-  })
+    });
+
+    const response = await api.post('/api/users', {
+      email: email,
+      username: username,
+      password: password,
+    });
+
+    // Log the API response to understand its structure
+    console.log("API Response:", response);
+
+    // Check the response data for success
+    if (response.data?.msg !== 'Created user') {
+      throw new Error(response.data?.msg || "Failed to create user");
+    }
+
+    // If successful, set redirect target
+    redirect_target = '/Profile'; // redirect to profile on success
+    console.log("Redirect target:", redirect_target); // Log the target URL
+
+    // Perform redirection using window.location.href
+    window.location.href = redirect_target; // Redirect to profile page
+
+  } catch (error) {
+    // Log any error that occurs during the request
+    console.error("Error during sign-up process:", error);
+    redirect_target = 'invalid'; // In case of an error
+  }
+
   return redirect_target;
 }
 

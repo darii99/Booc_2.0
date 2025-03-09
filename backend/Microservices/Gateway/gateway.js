@@ -39,11 +39,32 @@ const services = {
 };
 
 
+// Function to create dynamic proxy
+function createDynamicProxy(targetIP) {
+  return createProxyMiddleware({ 
+    target: `http://${targetIP}`, 
+    changeOrigin: true,
+    onProxyReq: (proxyReq, req, res) => {
+      if (req.body) {
+        const bodyData = JSON.stringify(req.body);
+        proxyReq.setHeader('Content-Type', 'application/json');
+        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        proxyReq.write(bodyData);
+      }
+    }
+  });
+}
 
+/*
 // proxy middleware for microservices
 app.use('/user', createProxyMiddleware({ target: services.user, changeOrigin: true }));
 app.use('/event', createProxyMiddleware({ target: services.event, changeOrigin: true }));
 app.use('/group', createProxyMiddleware({ target: services.group, changeOrigin: true }));
+*/
+
+app.use('/users', createDynamicProxy('10.0.162.82'));
+app.use('/event', createDynamicProxy('10.0.160.83'));
+app.use('/group', createDynamicProxy('10.0.86.95'));
 
 
 app.get('/', (req, res) => {
@@ -64,16 +85,11 @@ app.get('/health/readiness', (req, res) => {
 });
 
 
-
-
 // sleep function
 const sleep = ms => new Promise(resolve => {
     console.log(`Sleeping for ${ms} ms`);
     setTimeout(resolve, ms);
   });
-
-
-
 
 
 async function simulateStartup() {

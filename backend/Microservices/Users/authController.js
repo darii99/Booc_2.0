@@ -1,5 +1,72 @@
 const usersModel = require('./usersModel');
+const jwt = require('jsonwebtoken');
 
+
+const JWT_SECRET = 'booc2secret';
+
+// Generate JWT Token
+function generateToken(user) {
+    const payload = { email: user.email };
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' }); // Set expiry time as needed
+}
+
+// Authenticate user and issue a JWT token
+async function authenticate(req, res) {
+    const { email, password } = req.body;
+
+    // Check if user exists and credentials are correct
+    const user = await usersModel.getUser(email, password);
+
+    if (!user || user === "Failed to find") {
+        console.log("Invalid credentials");
+        return res.status(401).send({ msg: "Bad credentials" });
+    }
+
+    console.log("Valid credentials");
+
+    // Generate JWT token
+    const token = generateToken(user);
+
+    const { startingPage } = user;
+    return res.status(200).send({ msg: "Valid credentials", startingPage, token });
+}
+
+// Check if the user is authenticated by verifying the JWT token
+async function checkAuthStatus(req, res) {
+    const token = req.headers['authorization']?.split(' ')[1]; // Extract token from Authorization header
+
+    if (!token) {
+        return res.status(401).send({ msg: "Not authenticated" });
+    }
+
+    try {
+        // Verify the token
+        const decoded = jwt.verify(token, JWT_SECRET);
+        const user = await usersModel.getUser(decoded.email);
+
+        if (!user || user === "Failed to find") {
+            return res.status(401).send({ msg: "Not authenticated" });
+        }
+
+        return res.status(200).send({ msg: "You are authenticated" });
+    } catch (error) {
+        console.error('Error verifying token:', error);
+        return res.status(401).send({ msg: "Not authenticated" });
+    }
+}
+
+// Logout by deleting the token on client-side (No need to destroy session)
+async function removeAuth(req, res) {
+    return res.status(200).send({ msg: "Logged out" }); // Token-based logout is handled client-side
+}
+
+module.exports = {
+    authenticate,
+    checkAuthStatus,
+    removeAuth,
+};
+
+/* 
 //Checks if the given credentials are a valid login.
 async function authenicate(req, res){
     //Extract parameters from req
@@ -63,3 +130,4 @@ module.exports = {
     removeAuth,
 }
 
+*/

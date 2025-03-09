@@ -14,7 +14,71 @@ import Notification from '../../modelData/Feed/notification';
 import BasicFriendModal from '../forms/add_friend';
 import GroupModal from '../forms/create_group';
 import ModifyGroupModal from '../forms/modify_group_form';
+import { useState } from 'react';
 
+
+// Axios and JWT related
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+
+const API_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:6401';
+
+function Feed() {
+  const [userToken, setUserToken] = useState(localStorage.getItem('token'));
+  const [userData, setUserData] = useState(null);
+  const [groups, setGroups] = useState([]); // Define the groups state
+  const [loading, setLoading] = useState(true); // Loading state for groups
+  const [error, setError] = useState(null); // Error state
+
+  // Fetch user data and groups on mount or when userToken changes
+  useEffect(() => {
+    if (!userToken) return;
+
+    const decodedToken = jwtDecode(userToken);
+    const userEmail = decodedToken.email;
+    setUserData({ email: userEmail });
+
+    async function fetchGroups() {
+      try {
+        const response = await axios.get(`${API_URL}/groups`, {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          }
+        });
+        setGroups(response.data);
+      } catch (error) {
+        console.error('Error fetching groups:', error);
+      }
+    }
+
+    fetchGroups();
+  }, [userToken]);
+
+  // Token expiration handling
+  useEffect(() => {
+    if (!userToken) return;
+    const decodedToken = jwtDecode(userToken);
+    const expiryTime = decodedToken.exp * 1000; // JWT expiration is in seconds
+
+    const timer = setTimeout(() => {
+      alert('Session expired. Please log in again.');
+      localStorage.removeItem('token');
+      setUserToken(null); // Clear the token
+    }, expiryTime - Date.now());
+
+    return () => clearTimeout(timer);
+  }, [userToken]);
+
+  const handleLogin = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setUserToken(newToken);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUserToken(null);
+  };
+/*
 import {io} from 'socket.io-client';
 import { useRevalidator } from 'react-router';
 import { getAllGroups } from '../../modelData/group';
@@ -67,6 +131,7 @@ function Feed() {
         console.log("disconnected");
         socket.disconnect();
     }
+*/
 
   return (
     <div style={{ height: '100vh', width: '100%', overflow: 'hidden'  }}>

@@ -1,40 +1,74 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
+//Module dependencies.
 
+/*
 var {app, io} = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
+*/
+const { app, io } = require('../app');
+const http = require('http');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv').config();
 
-/**
- * Get port from environment and store in Express.
- */
+
+// Get port from environment and store in Express.
+
 
 var port = normalizePort(process.env.PORT || '6401');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
 
+//Middleware to verify JWT token for routes.
+//The token should be passed in the "Authorization" header as "Bearer <token>".
+app.use((req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Get token from Authorization header
+
+  if (!token) {
+    return res.status(401).json({ error: 'Token is required' });
+  }
+
+  // Verify the token
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).json({ error: 'Invalid token' });
+    }
+
+    // Attach user to the request object
+    req.user = user;
+    next(); // Proceed with the request
+  });
+});
+
+
+//Create HTTP server.
 //var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+const server = http.createServer(app); // Create HTTP server using Express app
 
+server.listen(port, function () {
+  console.log(`Listening on port: ${port}`);
+});
+
+
+//Event listener for HTTP server "error" event.
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+/*
+//Listen on provided port, on all network interfaces.
 io.listen(port, function(){
   console.log(`Listning on port: ${port}`);
 });
 io.on('error', onError);
 io.on('listening', onListening);
+*/
 
-/**
- * Normalize a port into a number, string, or false.
- */
-
+//Normalize a port into a number, string, or false.
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -51,10 +85,28 @@ function normalizePort(val) {
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+var bind = typeof port === 'string'
+? 'Pipe ' + port
+: 'Port ' + port;
 
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/*
+//Event listener for HTTP server "error" event.
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -78,15 +130,30 @@ function onError(error) {
       throw error;
   }
 }
+*/
 
-/**
- * Event listener for HTTP server "listening" event.
- */
-
+//Event listener for HTTP server "listening" event.
 function onListening() {
   var addr = io.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+
+//Normalize a port into a number, string, or false.
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
 }

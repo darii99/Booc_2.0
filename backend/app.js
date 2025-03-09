@@ -7,7 +7,9 @@ var session = require("express-session")
 var logger = require('morgan');
 var cors = require("cors");
 const dotenv = require("dotenv").config();
+const mongoose = require('mongoose');
 var MongoDBStore = require('connect-mongodb-session')(session);
+var jwt = require('jsonwebtoken');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,11 +21,95 @@ const responseHandler = require('./services/responseHandler');
 
 
 var app = express();
+
+
+// MongoDB connection
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@booc.oduvk.mongodb.net/Booc?retryWrites=true&w=majority&appName=Booc`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch(err => {
+  console.error('Failed to connect to MongoDB', err);
+});
+
+/*
+// MongoDB connection setup
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@booc.oduvk.mongodb.net/Booc?retryWrites=true&w=majority&appName=Booc`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("Connected to MongoDB");
+}).catch((err) => {
+  console.log("MongoDB connection error: ", err);
+});
+*/
+
+// CORS configuration
+const corsconfig = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+};
+
+app.options('*', cors(corsconfig));
+app.use(cors(corsconfig));
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(responseHandler);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/api', apiRouter);
+
+// JWT authentication middleware
+function verifyToken(req, res, next) {
+  const token = req.headers['authorization']?.split(' ')[1]; // Get token from Authorization header
+  if (!token) {
+    return res.status(403).send('Token is required');
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).send('Invalid token');
+    }
+    req.user = user; // Store user info in the request object for future use
+    next();
+  });
+}
+
+// Example of using the JWT middleware for a protected route
+apiRouter.get('/profile', verifyToken, (req, res) => {
+  res.json({ message: 'This is a protected route', user: req.user });
+});
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+
+/*
+/*
 //Creates socket connection server
-const http = require('http');
-const {Server} = require("socket.io");
+//const http = require('http');
+//const {Server} = require("socket.io");
+*/
 
 
+/*
 const corsconfig = {
   origin: "http://frontend:3000",
   credentials: true,
@@ -141,6 +227,10 @@ if (require.main === module){
 
 //server.listen(6400);
 
+// Initialize the HTTP server
+const http = require('http');
+const server = http.createServer(app);
+
 server.listen(PORT, () => {
   console.log(`Backend is running on port ${PORT}`);
 });
@@ -148,6 +238,6 @@ server.listen(PORT, () => {
 
 
 
-module.exports = {app,io};
+module.exports = {app/*,io*/};
 
 

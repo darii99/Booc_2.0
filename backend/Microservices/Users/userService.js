@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const jwt = require("jsonwebtoken");
 const cors = require('cors');
 const fs = require('fs');
 const os = require('os');
@@ -43,14 +44,11 @@ app.get('/health/readiness', (req, res) => {
 });
 
 
-
-
 // sleep function
 const sleep = ms => new Promise(resolve => {
   console.log(`Sleeping for ${ms} ms`);
   setTimeout(resolve, ms);
 });
-
 
 
 async function simulateStartup() {
