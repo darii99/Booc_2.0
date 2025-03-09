@@ -8,7 +8,7 @@ const {getCurrentUser,
     changeStartPage,
     userAuth} = require('./usersController');
 const {addFriend, deleteFriend} = require('./friendController');
-const {authenicate, authStatus, removeAuth} = require("./authController");
+const {authenticate, checkAuthStatus, removeAuth} = require("./authController");
 
 
 
@@ -21,8 +21,8 @@ router.put("/password", changePassword);
 router.get("/auth", userAuth);
 
 //Auth
-router.post("/auth", authenicate);
-router.get("/auth", authStatus);
+router.post("/auth", authenticate);
+router.get("/auth", checkAuthStatus);
 router.delete("/auth", removeAuth);
 
 //Friend
