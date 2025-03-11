@@ -21,15 +21,6 @@ const SLEEP_TIME = 10000;    //10000ms = 10 seconds
 const tmpDir = os.tmpdir();
 const startupFile = path.join(tmpDir, 'started');
 
-/** 
-// Microservice endpoints
-const services = {
-    user: 'http://localhost:3200',
-    event: 'http://localhost:3400',
-    group: 'http://localhost:3600'
-};
-*/
-
 
 // Microservice endpoints
 const services = {
@@ -65,15 +56,11 @@ app.get('/health/readiness', (req, res) => {
 
 
 
-
 // sleep function
 const sleep = ms => new Promise(resolve => {
     console.log(`Sleeping for ${ms} ms`);
     setTimeout(resolve, ms);
   });
-
-
-
 
 
 async function simulateStartup() {

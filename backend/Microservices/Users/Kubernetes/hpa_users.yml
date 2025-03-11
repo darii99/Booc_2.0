@@ -8,8 +8,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: user-microservice
-  minReplicas: 1
-  maxReplicas: 3
+  minReplicas: 1 #min one pod
+  maxReplicas: 3 #max 3 pods
   metrics:
     - type: Resource
       resource:
@@ -22,17 +22,17 @@ spec:
         name: memory
         target:
           type: AverageValue
-          averageValue: 75Mi #Scale when average memory exceeds 75Mi
+          averageValue: 75Mi  #Scale when average memory exceeds 75Mi
 behavior:
     scaleUp:
-      stabilizationWindowSeconds: 30
+      stabilizationWindowSeconds: 30  #Wait 30s before scaling
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 20
+          value: 100 #Can double amount of pods
+          periodSeconds: 20  #Check every 20s
     scaleDown:
-      stabilizationWindowSeconds: 30
+      stabilizationWindowSeconds: 30  #Wait 30s before scaling
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 20
+          value: 100 #Can double amount of pods
+          periodSeconds: 20  #Check every 20s
